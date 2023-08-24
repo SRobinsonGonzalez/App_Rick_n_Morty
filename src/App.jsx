@@ -5,8 +5,8 @@ import { useState } from 'react';
 import axios from 'axios';
 
 import { Routes, Route } from 'react-router-dom'
-import About from './Components/About/About';
-import Detail from './Components/Detail/Detail';
+import About from './views/About/About';
+import Detail from './views/Detail/Detail';
 import Error from './Components/Error/Error';
 
 
