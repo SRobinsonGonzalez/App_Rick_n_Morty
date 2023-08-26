@@ -1,8 +1,8 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom'
 import './main.css'
 import App from './App'
+import { BrowserRouter } from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

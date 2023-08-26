@@ -1,16 +1,18 @@
 import './App.css';
 import Cards from './Components/Cards/Cards.jsx';
 import Nav from './Components/Nav/Nav';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import About from './views/About/About';
 import Detail from './views/Detail/Detail';
 import Error from './Components/Error/Error';
+import Form from './views/Form/Form';
 
 
 function App() {
+
    const [characters, setCharacters] = useState([]);
 
    const onSearch = (id) => {
@@ -46,10 +48,47 @@ function App() {
       }
    }
 
+   const navigate = useNavigate();
+   const [access, setAccess] = useState(false)
+   const EMAIL = 'hh.robinson95@hotmail.com'
+   const PASSWORD = 'Kiwii9'
+
+   function login(userData) {
+      if (userData.email === EMAIL && userData.password === PASSWORD) {
+         setAccess(true);
+         navigate('/home');
+      } else (
+         alert('invalid data')
+      )
+   }
+
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
+
+   // Mientras no estemos en barrita que nuesto acces este en true
+   // en caso de que nos vayamos a barrita (logOut) nos mantenga en abrrita
+   function logOut() {
+      setAccess(false)
+   }
+
+   function noMove () {
+      if (location.pathname === '/' && setAccess(false)) {
+         useEffect(() => {
+            !access && navigate('*');
+         }, [access]);
+      }
+   }
+
+   const location = useLocation()
+
    return (
+
       <div className='App'>
-         <Nav onSearch={onSearch} randomId={randomHandler} />
+         {/* {pathname !== "/" ? <Nav onSearch={onSearch} randomId={randomHandler} /> : null} */}
+         {location.pathname !== "/" && <Nav onSearch={onSearch} randomId={randomHandler} logOut={logOut} noMove={noMove} />}
          <Routes>
+            <Route path='/' element={<Form login={login} />} />
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
             <Route path='/about' element={<About />} />
             <Route path='/detail/:id' element={<Detail />} />
