@@ -9,6 +9,7 @@ import About from './views/About/About';
 import Detail from './views/Detail/Detail';
 import Error from './Components/Error/Error';
 import Form from './views/Form/Form';
+import Favorites from './Components/Favorites/favorites';
 
 
 function App() {
@@ -83,7 +84,6 @@ function App() {
    const location = useLocation()
 
    return (
-
       <div className='App'>
          {/* {pathname !== "/" ? <Nav onSearch={onSearch} randomId={randomHandler} /> : null} */}
          {location.pathname !== "/" && <Nav onSearch={onSearch} randomId={randomHandler} logOut={logOut} noMove={noMove} />}
@@ -91,6 +91,7 @@ function App() {
             <Route path='/' element={<Form login={login} />} />
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
             <Route path='/about' element={<About />} />
+            <Route path='/favorites' element={<Favorites />} />
             <Route path='/detail/:id' element={<Detail />} />
             <Route path='*' element={<Error />} />
          </Routes>

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Validation from "./validation";
+import '../Form/form.module.css';
 
-const Form = ({login}) => {
+const Form = ({ login }) => {
     const [userData, setUserData] = useState({
         email: '',
         password: ''
@@ -25,7 +26,7 @@ const Form = ({login}) => {
         <div>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="email" >Email </label>
+                    <label>Email </label>
                     <input
                         type="text"
                         name="email"
@@ -35,7 +36,7 @@ const Form = ({login}) => {
                     <span>{errors.email}</span>
                 </div>
                 <div>
-                    <label htmlFor="password" >Password </label>
+                    <label>Password </label>
                     <input
                         type="password"
                         name="password"
