@@ -24,7 +24,7 @@ const Favorites = () => {
                 <option value='D'>Falling</option>
             </select>
             <select placeholder="Gender" onChange={handleFilter}>
-                {['', 'Male', 'Female', 'Genderless', 'unknown', 'All Characters'].map((gender) => (
+                {['', 'Male', 'Female', 'Genderless', 'unknown', 'AllGenders'].map((gender) => (
                     <option key={gender} value={gender}>{gender}</option>
                 ))}
             </select>

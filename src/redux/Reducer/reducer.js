@@ -17,6 +17,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 myFavorites: state.myFavorites.filter((favorite) => favorite.id !== action.payload),
+                allCharacters: state.allCharacters.filter((favorite) => favorite.id !== action.payload),
             }
         case FILTER:
             if (action.payload === 'All Characters') {

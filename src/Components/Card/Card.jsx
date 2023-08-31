@@ -5,7 +5,14 @@ import { useEffect, useState } from "react";
 
 function Card({ id, name, species, gender, status, origin, image, onClose, addFav, removeFav, myFavorites }) {
 
+   const [closeButton, setCloseButton] = useState(true)
    const [isFav, setIsFav] = useState(false);
+
+   useEffect(()=>{
+      if (!onClose) {
+         setCloseButton(false)
+      }
+   }, [])
    
    const handleFavorite = () => {
       if (isFav) {
@@ -32,7 +39,7 @@ function Card({ id, name, species, gender, status, origin, image, onClose, addFa
          ) : (
             <button onClick={handleFavorite}>🤍</button>
          )}
-         <button onClick={() => onClose(id)}>X</button>
+         {closeButton && <button onClick={() => onClose(id)}>X</button>}
          <Link to={`/detail/${id}`}>
             <h2>{name}</h2>
          </Link>
