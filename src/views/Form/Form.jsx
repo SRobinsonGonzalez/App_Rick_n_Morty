@@ -1,8 +1,9 @@
 import { useState } from "react";
-import Validation from "./validation";
-import '../Form/form.module.css';
+import Validation from "./Validation";
+import style from './Form.module.css'
 
 const Form = ({ login }) => {
+    const [view, setView] = useState(false)
     const [userData, setUserData] = useState({
         email: '',
         password: ''
@@ -22,30 +23,50 @@ const Form = ({ login }) => {
         login(userData);
     }
 
+    const showPassword = () => {
+        setView(!view)
+    }
+
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email </label>
-                    <input
-                        type="text"
-                        name="email"
-                        value={userData.email}
-                        onChange={handleChange}
-                        placeholder="" />
-                    <span>{errors.email}</span>
+        <div className={style.backForm}>
+            <form onSubmit={handleSubmit} className={style.formBox} >
+                <img className={style.imgLogin} src="./src/assets/img/03.png" />
+                <div className={style.form}>
+                    <h2 className={style.login} >Login</h2>
+                    <div className={style.inputBox}>
+                        <span className={style.icon}>
+                            <img className={style.log} src="./src/assets/img/01.png" alt="Logo" />
+                        </span>
+                        <input
+                            type="email"
+                            name="email"
+                            value={userData.email}
+                            onChange={handleChange}
+                            autoComplete="off"
+                            required
+                        />
+                        <label>Email </label>
+                        <p className={style.errors} >{errors.email}</p>
+                    </div>
+                    <div className={style.inputBox}>
+                        <span className={style.icon}>
+                            <img className={style.log} onClick={showPassword} style={{ cursor: "pointer" }} src="./src/assets/img/02.png" alt="Logo" />
+                        </span>
+                        <input
+                            type={view ? 'text' : 'password'}
+                            name="password"
+                            value={userData.password}
+                            onChange={handleChange}
+                            required
+                        />
+                        <label>Password </label>
+                        <p className={style.errors} >{errors.password}</p>
+                        <button className={style.submit} type="submit">Submit</button>
+                        <style>
+                            @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+                        </style>
+                    </div>
                 </div>
-                <div>
-                    <label>Password </label>
-                    <input
-                        type="password"
-                        name="password"
-                        value={userData.password}
-                        onChange={handleChange}
-                        placeholder="" />
-                    <span>{errors.password}</span>
-                </div>
-                <button>Submit</button>
             </form>
         </div>
     );

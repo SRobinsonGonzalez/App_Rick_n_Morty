@@ -1,23 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
-
+import style from './Nav.module.css'
 
 function Nav({ onSearch, randomId, logOut, /*noMove*/ }) {
 
     return (
-        <div>
+        <div className={style.navBar} >
             <Link to="/about">
-                <button>About</button>
+                <button className={style.navButton} >About</button>
             </Link>
             <Link to="/home">
-                <button>Home</button>
+                <button className={style.navButton} >Home</button>
             </Link>
             <Link to="/favorites">
-                <button>Favorites</button>
+                <button className={style.navButton} >Favorites</button>
             </Link>
             <Link to="/">
-                <button onClick={logOut/*noMove*/}>Log Out</button>
+                <button className={style.navButton}  onClick={logOut/*noMove*/}>Log Out</button>
             </Link>
             <SearchBar onSearch={onSearch} randomId={randomId} />
 
