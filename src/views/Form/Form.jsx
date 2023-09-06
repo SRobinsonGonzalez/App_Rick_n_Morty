@@ -29,6 +29,7 @@ const Form = ({ login }) => {
 
     return (
         <div className={style.backForm}>
+            <img className={style.imgForm} src="./src/assets/img/04.png" />
             <form onSubmit={handleSubmit} className={style.formBox} >
                 <img className={style.imgLogin} src="./src/assets/img/03.png" />
                 <div className={style.form}>
@@ -63,8 +64,9 @@ const Form = ({ login }) => {
                         <p className={style.errors} >{errors.password}</p>
                         <button className={style.submit} type="submit">Submit</button>
                         <style>
-                            @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+                            @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100&display=swap');
                         </style>
+
                     </div>
                 </div>
             </form>

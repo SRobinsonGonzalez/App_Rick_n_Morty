@@ -8,17 +8,22 @@
     background-size: cover;
 }
 
+.imgForm {
+    display: flex;
+    margin-right: 60px;
+}
+
 .formBox {
     display: flex;
     justify-content: center;
     align-items: center;
     background-position: center;
     position: relative;
-    width: 600px;
+    width: 580px;
     height: 450px;
     background: rgba(0, 0, 0, 0.25);
     border-radius: 50px;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(90px);
     padding: 20px;
     line-height: 20px;
     text-align: center;
@@ -39,6 +44,7 @@
 .login {
     font-size: 250%;
     /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-family: 'Blinker', sans-serif;
     color: #fff;
     text-align: center;
     margin-bottom: 60px;
@@ -94,19 +100,19 @@
     margin-right: 10px;
     background-image: '';
     position: absolute;
-    top: -28px;
-    left: 230px;
+    top: -24px;
+    left: 240px;
     color: #fff;
     font-size: 1.2rem;
     line-height: 80px;
 }
 
 .form .inputBox:first-of-type .icon {
-    top: -28px;
+    top: -24px;
 }
 
 .log {
-    width: 56px;
+    width: 50px;
 }
 
 /* .input-box .icon img {
@@ -122,25 +128,27 @@
     
 .submit {
     position: relative;
-    box-shadow: 0 0 5px rgb(30, 255, 0),
-        0 0 25px;
-    font-size: 1rem;
+    /* box-shadow: 0 0 5px rgb(30, 255, 0), 0 0 25px; */
+    font-size: 1.5rem;
     /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-family: 'Blinker', sans-serif;
     font-weight: 500;
     width: 100%;
     height: 48px;
-    background: rgba(35, 179, 16, 0.800);
+    background: rgba(27, 158, 10, 0.8);
     line-height: 15px;
     border: none;
     outline: none;
     border-radius: 40px;
     cursor: pointer;
-    color: #000;
+    color: #fff;
     margin-top: 25px;
     margin-left: -8%;
 }
 
 .submit:hover {
+    scale: .9;
+    transition: 500ms;
     box-shadow: 0 0 5px rgb(30, 255, 0),
         0 0 25px rgb(30, 255, 0), 0 0 50px rgb(30, 255, 0),
         0 0 100px rgb(30, 255, 0), 0 0 200px rgb(30, 255, 0);
