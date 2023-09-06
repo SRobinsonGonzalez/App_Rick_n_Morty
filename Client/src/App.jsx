@@ -19,18 +19,17 @@ function App() {
    const onSearch = (id) => {
       // if (!characters.find(character => character.id === Number(id))) {
       if (!characters.some(character => character.id === Number(id))) {
-         axios(`https://rickandmortyapi.com/api/character/${id}`)
+         axios(`http://localhost:3001/rickandmorty/character/${id}`)
             .then(response => response.data)
             .then((data) => {
                if (data.name) {
                   setCharacters((oldChars) => [...oldChars, data]);
                } else {
-                  window.alert('¡No hay personajes con este ID!');
+                  alert('¡No hay personajes con este ID!');
                }
             });
       } else {
-         alert('Este personaje ya ha sido agregado')
-         return;
+         alert('Este personaje ya ha sido agregado');
       }
    }
 
@@ -39,7 +38,7 @@ function App() {
    }
 
    function randomHandler() {
-      let randomId = (Math.random() * 826).toFixed();
+      let randomId = (Math.random() * 6).toFixed();
       randomId = parseInt(randomId);
       if (!characters.includes(randomId)) {
          onSearch(randomId)
@@ -70,7 +69,8 @@ function App() {
    // Mientras no estemos en barrita que nuesto acces este en true
    // en caso de que nos vayamos a barrita (logOut) nos mantenga en abrrita
    function logOut() {
-      setAccess(false)
+      setAccess(false);
+      navigate('/')
    }
 
    // function noMove () {

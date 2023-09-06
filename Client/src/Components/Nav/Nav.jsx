@@ -20,7 +20,6 @@ function Nav({ onSearch, randomId, logOut, /*noMove*/ }) {
                 <button className={style.navButton}  onClick={logOut/*noMove*/}>Log Out</button>
             </Link>
             <SearchBar onSearch={onSearch} randomId={randomId} />
-
         </div>
     );
 };

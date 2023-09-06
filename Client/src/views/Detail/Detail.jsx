@@ -7,7 +7,7 @@ const Detail = () => {
     const { id } = useParams()
     const [character, setCharacter] = useState({});
     useEffect(() => {
-        axios(`https://rickandmortyapi.com/api/character/${id}`)
+        axios(`http://localhost:3001/rickandmorty/character/${id}`)
             .then((response) => response.data)
             .then((data) => {
                 if (data.name) {

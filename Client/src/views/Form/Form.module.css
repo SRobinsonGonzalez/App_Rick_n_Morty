@@ -147,7 +147,7 @@
 }
 
 .submit:hover {
-    scale: .9;
+    scale: .85;
     transition: 500ms;
     box-shadow: 0 0 5px rgb(30, 255, 0),
         0 0 25px rgb(30, 255, 0), 0 0 50px rgb(30, 255, 0),
