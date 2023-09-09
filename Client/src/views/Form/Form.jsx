@@ -43,7 +43,8 @@ const Form = ({ login }) => {
                             name="email"
                             value={userData.email}
                             onChange={handleChange}
-                            autoComplete="off"
+                            placeholder="hh.robinson95@hotmail.com"
+                            // autoComplete="off"
                             required
                         />
                         <label>Email </label>
@@ -58,6 +59,7 @@ const Form = ({ login }) => {
                             name="password"
                             value={userData.password}
                             onChange={handleChange}
+                            placeholder="Kiwii9"
                             required
                         />
                         <label>Password </label>
@@ -66,7 +68,6 @@ const Form = ({ login }) => {
                         <style>
                             @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100&display=swap');
                         </style>
-
                     </div>
                 </div>
             </form>

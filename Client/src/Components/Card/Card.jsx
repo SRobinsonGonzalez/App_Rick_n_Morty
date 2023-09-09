@@ -2,49 +2,58 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../../redux/Actions/actions";
 import { useEffect, useState } from "react";
+import style from "./Card.module.css";
 
 function Card({ id, name, species, gender, status, origin, image, onClose, addFav, removeFav, myFavorites }) {
 
-   const [closeButton, setCloseButton] = useState(true)
+   const [closeButton, setCloseButton] = useState(true);
    const [isFav, setIsFav] = useState(false);
+   const [randomColorStyle, setRandomColorStyle] = useState({ backgroundColor: '' })
 
-   useEffect(()=>{
+   useEffect(() => {
       if (!onClose) {
-         setCloseButton(false)
+         setCloseButton(false);
       }
-   }, [])
-   
+   }, []);
+
    const handleFavorite = () => {
       if (isFav) {
          setIsFav(false),
             removeFav(id);
       } else {
          setIsFav(true),
-            addFav({ id, name, species, gender, status, origin, image, onClose, addFav, removeFav })
-      }
-   }
+            addFav({ id, name, species, gender, status, origin, image, onClose, addFav, removeFav });
+      };
+   };
 
    useEffect(() => {
       myFavorites.forEach((favorite) => {
          if (favorite.id === id) {
             setIsFav(true);
-         }
+         };
       });
-   }, [myFavorites])
+   }, [myFavorites]);
+
+   useEffect(() => {
+      const randomColor = '#' + Math.round(Math.random() * 16777215).toString(16);
+      setRandomColorStyle({ backgroundColor: randomColor })
+   }, [])
 
    return (
-      <div>
+      <div className={style.cardStyle} style={randomColorStyle}>
          {isFav ? (
             <button onClick={handleFavorite}>❤️</button>
          ) : (
             <button onClick={handleFavorite}>🤍</button>
          )}
-         {closeButton && <button onClick={() => onClose(id)}>X</button>}
+       
          <Link to={`/detail/${id}`}>
             <h2>{name}</h2>
+            <h2>{species}</h2>
          </Link>
-         <img src={image} alt={name} />
-         <h2>{species}</h2>
+         <img className={style.imgCard} src={image} alt={name} />
+     
+         {closeButton && <button className={style.closeButton} onClick={() => onClose(id)}>✖</button>}
          {/* <h2>{gender}</h2> */}
          {/* <h2>{status}</h2> */}
          {/* <h2>{origin}</h2> */}

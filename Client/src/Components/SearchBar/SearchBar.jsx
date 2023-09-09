@@ -7,7 +7,13 @@ export default function SearchBar({ onSearch, randomId }) {
    }
    return (
       <div>
-         <input type='search' onChange={handleChange} value={id} placeholder="Search Character"/>
+         <input 
+         type='search' 
+         aria-activedescendant="both"
+         aria-expanded='false'
+         onChange={handleChange} value={id} 
+         placeholder="Search Character"
+         />
          <button onClick={() => { onSearch(id); setId('') }}>Agregar</button>
          <button onClick={randomId}>Random</button>
       </div>

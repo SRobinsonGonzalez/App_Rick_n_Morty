@@ -38,7 +38,7 @@ function App() {
    }
 
    function randomHandler() {
-      let randomId = (Math.random() * 6).toFixed();
+      let randomId = (Math.random() * 826).toFixed();
       randomId = parseInt(randomId);
       if (!characters.includes(randomId)) {
          onSearch(randomId)
@@ -50,17 +50,20 @@ function App() {
 
    const navigate = useNavigate();
    const [access, setAccess] = useState(false)
-   const EMAIL = 'hh.robinson95@hotmail.com'
-   const PASSWORD = 'Kiwii9'
+   // const EMAIL = 'hh.robinson95@hotmail.com'
+   // const PASSWORD = 'Kiwii9'
 
    function login(userData) {
-      if (userData.email === EMAIL && userData.password === PASSWORD) {
-         setAccess(true);
-         navigate('/home');
-      } else (
-         alert('invalid data')
-      )
-   }
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`)
+         .then((response) => response.data)
+         .then((data) => {
+            const { access } = data;
+            setAccess(data);
+            access && navigate('/home');
+         });
+   };
 
    useEffect(() => {
       !access && navigate('/');

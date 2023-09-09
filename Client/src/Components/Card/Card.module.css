@@ -1,0 +1,25 @@
+.cardStyle {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 0.6em;
+
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  /* border: 6px outset #000000ba; */
+}
+
+.closeButton {
+  border: none;
+  background: rgba(0, 0, 0, 0);
+  /* backdrop-filter: blur(90px); */
+  width: transparent;
+  height: fit-content;
+  align-items: flex-end;
+}
+
+.imgCard {
+  border-radius: 100%;
+}

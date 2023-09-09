@@ -22,8 +22,8 @@
     width: 580px;
     height: 450px;
     background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
     border-radius: 50px;
-    backdrop-filter: blur(90px);
     padding: 20px;
     line-height: 20px;
     text-align: center;
