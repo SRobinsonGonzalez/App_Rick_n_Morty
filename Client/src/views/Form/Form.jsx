@@ -31,7 +31,7 @@ const Form = ({ login }) => {
         <div className={style.backForm}>
             <img className={style.imgForm} src="./src/assets/img/04.png" />
             <form onSubmit={handleSubmit} className={style.formBox} >
-                <img className={style.imgLogin} src="./src/assets/img/03.png" />
+                {/* <img className={style.imgLogin} src="./src/assets/img/03.png" /> */}
                 <div className={style.form}>
                     <h2 className={style.login} >Login</h2>
                     <div className={style.inputBox}>

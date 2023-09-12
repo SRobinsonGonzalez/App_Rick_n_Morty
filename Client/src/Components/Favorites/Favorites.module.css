@@ -1,13 +1,21 @@
-.imgCards {
-    /* display: flex; */
-    align-self: flex-end;
-    bottom: 0;
-    right: 0;
-    width: 150px;
-    height: auto;
-    z-index: 1;
-    position: fixed;
-    right: 0%;
-    width: 20%;
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    /* Va creando mas filas */
+    justify-content: space-evenly;
+    /* Da espacio entre las cards de las filas */
+    gap: 30px;
+    /* Da espacio entre filas */
+    margin-top: 1.5rem;
 }
 
+.sticker {
+    bottom: 0;
+    right: 0%;
+    position: fixed;
+    /* pega la imagen de la ventana dependiendo la posicion */
+    width: 18%;
+    /* align-self: flex-end; */
+    /* height: auto; */
+    z-index: 3;
+}

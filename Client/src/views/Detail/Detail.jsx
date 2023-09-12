@@ -23,6 +23,7 @@ const Detail = () => {
         <div>
             {character.name ? (
                 <>
+                    <h1>Id: {character.id}</h1>
                     <h2>Name: {character.name}</h2>
                     <p>Status: {character.status}</p>
                     <p>Species: {character.species}</p>

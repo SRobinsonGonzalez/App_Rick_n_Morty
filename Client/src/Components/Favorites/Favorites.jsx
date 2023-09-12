@@ -20,7 +20,7 @@ const Favorites = () => {
 
     return (
         <div>
-            <div>
+            <div className={style.cards}>
                 <select placeholder="Order" onChange={handleOrder}>
                     <option value='A'>Upward</option>
                     <option value='D'>Falling</option>
@@ -43,7 +43,7 @@ const Favorites = () => {
                     />
                 ))}
             </div>
-            <img className={style.imgCards} src="./src/assets/img/01.png" />
+            <img className={style.sticker} src="./src/assets/img/01.png" />
         </div>
     );
 };

@@ -1,5 +1,7 @@
+@keyframes color-change-5x{0%{background:#33d0dbd0}25%{background:#c28ce2}50%{background:#e57474}75%{background:#6a6a6a}100%{background:#7cd85f}}
 .App {
-  background: #ffffff;
+  animation:color-change-5x 8s linear infinite alternate both;
+  /* background: #ffffff; */
   height: 100vh;
   text-align: center;
 }

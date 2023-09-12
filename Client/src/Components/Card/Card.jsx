@@ -40,24 +40,33 @@ function Card({ id, name, species, gender, status, origin, image, onClose, addFa
    }, [])
 
    return (
-      <div className={style.cardStyle} style={randomColorStyle}>
-         {isFav ? (
-            <button onClick={handleFavorite}>❤️</button>
-         ) : (
-            <button onClick={handleFavorite}>🤍</button>
-         )}
-       
-         <Link to={`/detail/${id}`}>
-            <h2>{name}</h2>
-            <h2>{species}</h2>
-         </Link>
-         <img className={style.imgCard} src={image} alt={name} />
-     
+      <div className={style.cardBox} style={randomColorStyle}>
+         <div className={style.name}>
+            <h1 className={style.nameOut}>{name}</h1>
+            {/* <img src='' alt={`Imagen no encontrada de ${props.name}`} /> */}
+         </div>
+         <div className={style.detail}>
+            <h1>Id: {id}</h1>
+            <h3>Gender: {gender}</h3>
+            {/* <h3>Status: {status}</h3> */}
+            <h3>Species: {species}</h3>
+            {/* <h4>Origin: {origin}</h4> */}
+            <Link to={`/detail/${id}`}>
+               <h1 className={style.nameIn}>{name}</h1>
+            </Link>
+            <br/>
+            {isFav ? (
+               <button className={style.buttons} onClick={handleFavorite}>❤️</button>
+            ) : (
+               <button className={style.buttons} onClick={handleFavorite}>🤍</button>
+            )}
+         </div>
+         <div className={style.imgBox} >
+            <Link to={`/detail/${id}`}>
+               <img className={style.imgCard} src={image} alt={name} />
+            </Link>
+         </div>
          {closeButton && <button className={style.closeButton} onClick={() => onClose(id)}>✖</button>}
-         {/* <h2>{gender}</h2> */}
-         {/* <h2>{status}</h2> */}
-         {/* <h2>{origin}</h2> */}
-         {/* <img src='' alt={`Imagen no encontrada de ${props.name}`} /> */}
       </div>
    );
 }

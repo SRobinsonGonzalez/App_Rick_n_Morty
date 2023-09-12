@@ -20,7 +20,7 @@ function Cards({ characters, onClose }) {
                />
             ))}
          </div>
-         <img className={style.imgCards} src="./src/assets/img/01.png" />
+         <img className={style.sticker} src="./src/assets/img/01.png" />
       </div>
    )
 }
