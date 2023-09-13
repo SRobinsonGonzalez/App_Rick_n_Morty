@@ -16,20 +16,21 @@ function App() {
 
    const [characters, setCharacters] = useState([]);
 
-   const onSearch = (id) => {
-      // if (!characters.find(character => character.id === Number(id))) {
-      if (!characters.some(character => character.id === Number(id))) {
-         axios(`http://localhost:3001/rickandmorty/character/${id}`)
-            .then(response => response.data)
-            .then((data) => {
-               if (data.name) {
-                  setCharacters((oldChars) => [...oldChars, data]);
-               } else {
-                  alert('¡No hay personajes con este ID!');
-               }
-            });
-      } else {
-         alert('Este personaje ya ha sido agregado');
+   const onSearch = async (id) => {
+      try {
+         // if (!characters.find(character => character.id === Number(id))) {
+         if (!characters.some(character => character.id == id)) {
+            const { data } = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`);
+            if (data.name) {
+               setCharacters((oldChars) => [...oldChars, data]);
+            } else {
+               alert('¡There are no characters with this ID!');
+            }
+         } else {
+            alert('This character has already been added');
+         }
+      } catch (error) {
+         console.log(error.message);
       }
    }
 
@@ -53,16 +54,17 @@ function App() {
    // const EMAIL = 'hh.robinson95@hotmail.com'
    // const PASSWORD = 'Kiwii9'
 
-   function login(userData) {
-      const { email, password } = userData;
-      const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`)
-         .then((response) => response.data)
-         .then((data) => {
-            const { access } = data;
-            setAccess(data);
-            access && navigate('/home');
-         });
+   async function login(userData) {
+      try {
+         const { email, password } = userData;
+         const URL = 'http://localhost:3001/rickandmorty/login/';
+         const { data } = await axios(URL + `?email=${email}&password=${password}`)
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      } catch (error) {
+         console.log(error.message);
+      }
    };
 
    useEffect(() => {

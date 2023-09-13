@@ -43,7 +43,7 @@ const Form = ({ login }) => {
                             name="email"
                             value={userData.email}
                             onChange={handleChange}
-                            placeholder="hh.robinson95@hotmail.com"
+                            // placeholder="hh.robinson95@hotmail.com"
                             // autoComplete="off"
                             required
                         />
@@ -59,7 +59,7 @@ const Form = ({ login }) => {
                             name="password"
                             value={userData.password}
                             onChange={handleChange}
-                            placeholder="Kiwii9"
+                            // placeholder="Kiwii9"
                             required
                         />
                         <label>Password </label>
