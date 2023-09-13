@@ -15,7 +15,5 @@
     position: fixed;
     /* pega la imagen de la ventana dependiendo la posicion */
     width: 18%;
-    /* align-self: flex-end; */
-    /* height: auto; */
     z-index: 3;
 }

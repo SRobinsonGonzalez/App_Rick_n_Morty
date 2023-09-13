@@ -71,27 +71,17 @@ function App() {
       !access && navigate('/');
    }, [access]);
 
-   // Mientras no estemos en barrita que nuesto acces este en true
-   // en caso de que nos vayamos a barrita (logOut) nos mantenga en abrrita
    function logOut() {
       setAccess(false);
       navigate('/')
    }
-
-   // function noMove () {
-   //    if (location.pathname === '/' && setAccess(false)) {
-   //       useEffect(() => {
-   //          !access && navigate('*');
-   //       }, [access]);
-   //    }
-   // }
 
    const location = useLocation()
 
    return (
       <div className='App'>
          {/* {pathname !== "/" ? <Nav onSearch={onSearch} randomId={randomHandler} /> : null} */}
-         {location.pathname !== "/" && <Nav onSearch={onSearch} randomId={randomHandler} logOut={logOut} /*noMove={noMove}*/ />}
+         {location.pathname !== "/" && <Nav onSearch={onSearch} randomId={randomHandler} logOut={logOut} />}
          <Routes>
             <Route path='/' element={<Form login={login} />} />
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />

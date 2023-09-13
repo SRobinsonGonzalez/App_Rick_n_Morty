@@ -8,11 +8,11 @@ const getCharById = async (request, response) => {
         let character = {
             id: data.id,
             name: data.name,
-            gender: data.gender,
-            origin: data.origin,
-            image: data.image,
             status: data.status,
             species: data.species,
+            origin: data.origin,
+            image: data.image,
+            gender: data.gender,
         };
         return character.name
             ? response.status(200).json(character)
