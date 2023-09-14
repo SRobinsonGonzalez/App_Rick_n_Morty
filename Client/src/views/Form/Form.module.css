@@ -2,18 +2,23 @@
     0% {
         transform: translate(0)
     }
+
     20% {
         transform: translate(-2px, 2px)
     }
+
     40% {
         transform: translate(-2px, -2px)
     }
+
     60% {
         transform: translate(2px, 2px)
     }
+
     80% {
         transform: translate(2px, -2px)
     }
+
     100% {
         transform: translate(0)
     }
@@ -42,14 +47,14 @@
     align-items: center;
     /* background-position: center; */
     /* position: relative; */
-    max-width: 100%;
-    width: 440px;
-    height: 450px;
+    /* max-width: 100%; */
+    width: 500px;
+    /* height: 400px; */
     background: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(10px);
     border-radius: 50px;
     padding: 20px;
-    line-height: 20px;
+    /* line-height: 20px; */
     text-align: center;
 }
 
@@ -148,12 +153,11 @@
     width: 10%;
 } */
 
-.imgLogin {
+/* .imgLogin {
     display: flex;
     width: 200px;
     padding-right: 40px;
-    /* margin-right: 40px; */
-}
+} */
 
 .submit {
     position: relative;
@@ -179,10 +183,15 @@
     scale: .85;
     transition: 500ms;
     box-shadow: 0 0 5px rgb(30, 255, 0),
-    0 0 25px rgb(30, 255, 0), 0 0 50px rgb(30, 255, 0),
-    0 0 100px rgb(30, 255, 0), 0 0 200px rgb(30, 255, 0);
+        0 0 25px rgb(30, 255, 0), 0 0 50px rgb(30, 255, 0),
+        0 0 100px rgb(30, 255, 0), 0 0 200px rgb(30, 255, 0);
 }
 
 .submit:not(:hover) {
     transition: 500ms;
+}
+
+h6 {
+    color: #fff;
+    /* top: 100%; */
 }

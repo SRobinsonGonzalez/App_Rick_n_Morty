@@ -1,0 +1,56 @@
+/* .searchBox {
+    display: flex;
+    -ms-flex-align: start;
+    align-items: center;
+    justify-content: space-around;
+} */
+
+.inputCharacter {
+    position: ;
+    border-radius: 0.4rem;
+    border: none;
+    width: 150%;
+}
+
+.add {
+    border-radius: 0.4rem;
+    border: none;
+    ;
+}
+
+.searchBox {
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    /* flex-direction: row; */
+    border-radius: 0.5rem;
+    background-color: #EEE;
+    /* box-sizing: border-box; */
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: .5rem;
+    width: 150%;
+    /* font-size: 14px; */
+}
+
+.add {
+    background-color: rgba(112, 112, 112, 0.200);
+    width: 120%;
+}
+
+.inputSearch {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchBox .radio .add {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    /* border-radius: 0.5rem; */
+    border: 0;
+    padding: .5rem 0;
+    color: rgba(51, 65, 85, 1);
+    transition: all .15s ease-in-out;
+}

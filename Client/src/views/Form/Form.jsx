@@ -7,16 +7,24 @@ const Form = ({ login }) => {
     const [userData, setUserData] = useState({
         email: '',
         password: ''
-    })
+    });
     const [errors, setErrors] = useState({
         email: '',
         password: ''
-    })
+    });
 
     const handleChange = (event) => {
-        setUserData({ ...userData, [event.target.name]: event.target.value })
-        setErrors(Validation({ ...userData, [event.target.name]: event.target.value }))
-    }
+        setUserData({
+            ...userData,
+            [event.target.name]: event.target.value
+        });
+        setErrors(
+            Validation({
+                ...userData,
+                [event.target.name]: event.target.value
+            })
+        );
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -30,7 +38,7 @@ const Form = ({ login }) => {
     return (
         <div className={style.backForm}>
             <img className={style.imgForm} src="./src/assets/img/04.png" />
-            <form onSubmit={handleSubmit} className={style.formBox} >
+            <form className={style.formBox} onSubmit={handleSubmit}  >
                 {/* <img className={style.imgLogin} src="./src/assets/img/03.png" /> */}
                 <div className={style.form}>
                     <h2 className={style.login} >Login</h2>
@@ -43,11 +51,10 @@ const Form = ({ login }) => {
                             name="email"
                             value={userData.email}
                             onChange={handleChange}
-                            // placeholder="hh.robinson95@hotmail.com"
-                            // autoComplete="off"
+                            autoComplete="off"
                             required
                         />
-                        <label>Email </label>
+                        <label>Email</label>
                         <p className={style.errors} >{errors.email}</p>
                     </div>
                     <div className={style.inputBox}>
@@ -59,12 +66,12 @@ const Form = ({ login }) => {
                             name="password"
                             value={userData.password}
                             onChange={handleChange}
-                            // placeholder="Kiwii9"
                             required
                         />
-                        <label>Password </label>
+                        <label>Password</label>
                         <p className={style.errors} >{errors.password}</p>
                         <button className={style.submit} type="submit">Submit</button>
+                        <h6>email: hh.robinson95@hotmail.com, password:Kiwii9</h6>
                         <style>
                             @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100&display=swap');
                         </style>

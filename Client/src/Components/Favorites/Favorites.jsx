@@ -9,6 +9,8 @@ const Favorites = () => {
     const dispatch = useDispatch();
     const [aux, setAux] = useState(false);
 
+    const favoritesCount = favorites.length;
+
     function handleOrder(event) {
         dispatch(orderCards(event.target.value));
         setAux(true);
@@ -21,15 +23,21 @@ const Favorites = () => {
     return (
         <div>
             <div className={style.cards}>
-                <select placeholder="Order" onChange={handleOrder}>
-                    <option value='A'>Upward</option>
-                    <option value='D'>Falling</option>
-                </select>
-                <select placeholder="Gender" onChange={handleFilter}>
-                    {['', 'Male', 'Female', 'Genderless', 'unknown', 'AllGenders'].map((gender) => (
-                        <option key={gender} value={gender}>{gender}</option>
-                    ))}
-                </select>
+                <div className={style.selects}>
+                    <div className={style.title}>
+                        <h1>💌 My Favorites</h1>
+                        <h2>{favoritesCount}</h2>
+                    </div>
+                    <select className={style.order} placeholder="Order" onChange={handleOrder}>
+                        <option value='A'>Upward</option>
+                        <option value='D'>Falling</option>
+                    </select>
+                    <select className={style.gender} placeholder="Gender" onChange={handleFilter}>
+                        {['', 'Male', 'Female', 'Genderless', 'unknown', 'AllGenders'].map((gender) => (
+                            <option key={gender} value={gender}>{gender}</option>
+                        ))}
+                    </select>
+                </div>
                 {favorites.map(({ id, name, status, species, gender, image, origin }) => (
                     <Card
                         key={id}
@@ -44,6 +52,9 @@ const Favorites = () => {
                 ))}
             </div>
             <img className={style.sticker} src="./src/assets/img/01.png" />
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+            </style>
         </div>
     );
 };
