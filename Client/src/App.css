@@ -1,5 +1,5 @@
-@keyframes color-change-5x{0%{background:#cacaca}25%{background:#9268a9}50%{background:#697eaf}75%{background:#545454}100%{background:#518242}}
 .App {
+  background: url('https://images.squarespace-cdn.com/content/v1/56049db4e4b0eddafbc7b690/1580881901871-BJ0I90YR0P648O3MCM2X/R%26M_Lab_pickles_01.jpg?format=2500w');
   animation:color-change-5x 8s linear infinite alternate both;
   min-height: 100vh;
   background-attachment: fixed;

@@ -6,16 +6,48 @@
     /* Da espacio entre las cards de las filas */
     gap: 30px;
     /* Da espacio entre filas */
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 }
 
 .sticker {
-    bottom: 0;
-    right: 0%;
     position: fixed;
-    /* pega la imagen de la ventana dependiendo la posicion */
+    right: 0%;
+    bottom: 0;
     width: 18%;
-    /* align-self: flex-end; */
-    /* height: auto; */
     z-index: 3;
+    overflow: hidden;
+    --transition-duration: 700ms;
+    transition: transform var(--transition-duration);
+}
+
+.bubble {
+    position: fixed;
+    right: 10%;
+    bottom: 16%;
+    width: 25%;
+    z-index: 4;
+}
+
+.bubbleText {
+    position: fixed;
+    right: 11.5%;
+    bottom: 29%;
+    width: 21%;
+    z-index: 5;
+}
+
+.typeWriter {
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    width: 100%;
+    z-index: 6;
+}
+
+.sticker:hover {
+    transform: scale(1.03);
+}
+
+.sticker:not(:hover)~.bubble,
+.sticker:not(:hover)~.bubbleText {
+    opacity: 0;
 }

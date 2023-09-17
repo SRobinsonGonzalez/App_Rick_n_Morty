@@ -9,8 +9,6 @@ const Favorites = () => {
     const dispatch = useDispatch();
     const [aux, setAux] = useState(false);
 
-    const favoritesCount = favorites.length;
-
     function handleOrder(event) {
         dispatch(orderCards(event.target.value));
         setAux(true);
@@ -24,10 +22,6 @@ const Favorites = () => {
         <div>
             <div className={style.cards}>
                 <div className={style.selects}>
-                    <div className={style.title}>
-                        <h1>💌 My Favorites</h1>
-                        <h2>{favoritesCount}</h2>
-                    </div>
                     <select className={style.order} placeholder="Order" onChange={handleOrder}>
                         <option value='A'>Upward</option>
                         <option value='D'>Falling</option>
@@ -52,6 +46,10 @@ const Favorites = () => {
                 ))}
             </div>
             <img className={style.sticker} src="./src/assets/img/01.png" />
+            <img className={style.bubble} src="./src/assets/img/18.png" />
+            <div className={style.bubbleText}>
+                <h1 className={style.typeWriter}>My favorites, not yours!</h1>
+            </div>
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
             </style>

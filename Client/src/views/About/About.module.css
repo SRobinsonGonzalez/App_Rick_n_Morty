@@ -1,0 +1,13 @@
+.stickerBox {
+    background-color: #ffff;
+    display: flex;
+}
+
+.sticker {
+    bottom: 0;
+    right: 0%;
+    position: fixed;
+    /* pega la imagen de la ventana dependiendo la posicion */
+    width: 18%;
+    z-index: 3;
+}

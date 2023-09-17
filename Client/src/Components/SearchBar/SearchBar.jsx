@@ -10,9 +10,9 @@ export default function SearchBar({ onSearch }) {
    }
    return (
       <div className={style.searchBox} >
-         <div className={style.inputSearch}>
+         <div className={style.search}>
             <input
-               className={style.inputCharacter}
+               className={style.inputCharacters}
                type='search'
                aria-activedescendant="both"
                aria-expanded='false'
@@ -20,9 +20,12 @@ export default function SearchBar({ onSearch }) {
                placeholder="Search Character"
             />
          </div>
-         <div className={style.radio}>
-            <button className={style.add} onClick={() => { onSearch(id); setId('') }}><FcSearch size="1.4rem" /> Agregar</button>
+         <div className={style.add}>
+            <button 
+            className={style.addButton} 
+            onClick={() => { onSearch(id); setId('') }}
+            ><FcSearch size="1.4rem" /></button>
          </div>
       </div>
    );
-}
+};
