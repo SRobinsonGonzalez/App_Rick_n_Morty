@@ -48,6 +48,7 @@
         box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
         -webkit-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
+        color: #ffffff;
     }
 
     .homeButton:hover {
@@ -81,6 +82,7 @@
         box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
         -webkit-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
+        color: #ffffff;
     }
 
     .favoritesButton:hover {
@@ -111,8 +113,6 @@
     background-color: #000000;
     color: rgb(255, 255, 255);
     font-size: smaller;
-    transition: 0.15s ease-in;
-    z-index: 9;
 }
 
 .about {
@@ -131,6 +131,8 @@
         box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
         -webkit-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
+        font-family: 'Blinker', sans-serif;
+        font-size: x-large;
     }
 
     .aboutButton:hover {
@@ -162,6 +164,8 @@
         box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
         -webkit-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
+        font-family: 'Blinker', sans-serif;
+        font-size: x-large;
     }
 
     .logOutButton:hover {

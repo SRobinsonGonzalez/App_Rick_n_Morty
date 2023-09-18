@@ -48,7 +48,7 @@ const Favorites = () => {
             <img className={style.sticker} src="./src/assets/img/01.png" />
             <img className={style.bubble} src="./src/assets/img/18.png" />
             <div className={style.bubbleText}>
-                <h1 className={style.typeWriter}>My favorites, not yours!</h1>
+                <h2 className={style.typeWriter}>My favorites, not yours!</h2>
             </div>
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');

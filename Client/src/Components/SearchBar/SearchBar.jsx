@@ -1,6 +1,6 @@
 import { useState } from "react";
 import style from './SearchBar.module.css'
-import { FcSearch } from 'react-icons/fc'
+import { BiSearchAlt } from 'react-icons/bi'
 
 
 export default function SearchBar({ onSearch }) {
@@ -21,11 +21,14 @@ export default function SearchBar({ onSearch }) {
             />
          </div>
          <div className={style.add}>
-            <button 
-            className={style.addButton} 
-            onClick={() => { onSearch(id); setId('') }}
-            ><FcSearch size="1.4rem" /></button>
+            <button
+               className={style.addButton}
+               onClick={() => { onSearch(id); setId('') }}
+            ><BiSearchAlt size="2rem" /></button>
          </div>
+         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100&display=swap');
+         </style>
       </div>
    );
 };

@@ -17,36 +17,32 @@
     margin-top: 1.5rem;
 }
 
+.bubble {
+    position: fixed;
+    right: 8.5%;
+    bottom: 12%;
+    width: 20%;
+    z-index: 4;
+}
+
 .bubbleText {
     position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    right: 11.4%;
-    bottom: 29%;
-    width: 21%;
+    right: 8%;
+    bottom: 22%;
+    width: 20%;
     z-index: 5;
 }
 
 .typeWriter {
     color: black;
     font-family: 'Press Start 2P', cursive;
-    font-size: 30px;
-}
-
-.bubble {
-    position: fixed;
-    right: 10%;
-    bottom: 16%;
-    width: 25%;
-    z-index: 4;
 }
 
 .sticker {
     position: fixed;
     right: 0%;
     bottom: 0;
-    width: 18%;
+    width: 15%;
     z-index: 3;
     --transition-duration: 700ms;
     transition: transform var(--transition-duration);

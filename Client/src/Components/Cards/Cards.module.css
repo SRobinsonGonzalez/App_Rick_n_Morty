@@ -13,7 +13,7 @@
     position: fixed;
     right: 0%;
     bottom: 0;
-    width: 18%;
+    width: 15%;
     z-index: 3;
     overflow: hidden;
     --transition-duration: 700ms;
@@ -22,17 +22,17 @@
 
 .bubble {
     position: fixed;
-    right: 10%;
-    bottom: 16%;
-    width: 25%;
+    right: 8.5%;
+    bottom: 12%;
+    width: 20%;
     z-index: 4;
 }
 
 .bubbleText {
     position: fixed;
-    right: 11.5%;
-    bottom: 29%;
-    width: 21%;
+    right: 8%;
+    bottom: 22%;
+    width: 20%;
     z-index: 5;
 }
 
@@ -50,4 +50,28 @@
 .sticker:not(:hover)~.bubble,
 .sticker:not(:hover)~.bubbleText {
     opacity: 0;
+}
+
+/*Todo responsive*/
+
+@media screen and (max-width: 768px) {
+    .cards {
+        justify-content: center; /* Centra las tarjetas en pantallas pequeñas */
+    }
+
+    .sticker,
+    .typeWriter,
+    .bubble,
+    .bubbleText {
+        margin: 0; /* Elimina el margen */
+    }
+
+    .sticker:hover {
+        transform: none; /* Elimina la transformación al hacer hover en pantallas pequeñas */
+    }
+
+    .sticker:not(:hover)~.bubble,
+    .sticker:not(:hover)~.bubbleText {
+        opacity: 1; /* Muestra los elementos de burbuja en pantallas pequeñas */
+    }
 }

@@ -27,10 +27,13 @@
     cursor: pointer;
     background-color: #ffffff;
     color: #000000;
-    /* border-bottom: 2px solid #000000; */
     box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
+    font-family: 'Blinker', sans-serif;
+    font-size: x-large;
+    font-weight: bold;
+    padding-left: 2rem;
 }
 
 .add {
@@ -50,6 +53,7 @@
         box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
         -webkit-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.75);
+        font-family: 'Blinker', sans-serif;
     }
 
     .addButton:hover {

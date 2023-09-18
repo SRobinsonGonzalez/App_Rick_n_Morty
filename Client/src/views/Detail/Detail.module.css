@@ -1,3 +1,21 @@
+.box {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Blinker', sans-serif;
+    font-weight: bold;
+    color: #ffff;
+}
+
+.image {
+    padding-top: 1rem;
+    width: 380px;
+    border-radius: 100%;
+    /* border-radius: 1rem; */
+}
+
 .card {
     display: flex;
     flex-wrap: wrap;
@@ -9,15 +27,45 @@
     margin-top: 1.5rem;
 }
 
-.stickerBox {
-    background-color: aliceblue;
+.sticker {
+    position: fixed;
+    right: 0%;
+    bottom: 0;
+    width: 15%;
+    z-index: 3;
+    overflow: hidden;
+    --transition-duration: 700ms;
+    transition: transform var(--transition-duration);
 }
 
-.sticker {
-    bottom: 0;
-    right: 0%;
+.bubble {
     position: fixed;
-    /* pega la imagen de la ventana dependiendo la posicion */
-    width: 18%;
-    z-index: 3;
+    right: 8.5%;
+    bottom: 12%;
+    width: 20%;
+    z-index: 4;
+}
+
+.bubbleText {
+    position: fixed;
+    right: 8%;
+    bottom: 23%;
+    width: 20%;
+    z-index: 5;
+}
+
+.typeWriter {
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    width: 100%;
+    z-index: 6;
+}
+
+.sticker:hover {
+    transform: scale(1.03);
+}
+
+.sticker:not(:hover)~.bubble,
+.sticker:not(:hover)~.bubbleText {
+    opacity: 0;
 }

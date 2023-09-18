@@ -21,25 +21,36 @@ const Detail = () => {
     }, [id]);
 
     return (
-        <div>
-            <div >
-                {character.name ? (
-                    <>
-                        <h1>Id: {character.id}</h1>
-                        <h2>Name: {character.name}</h2>
-                        <p>Status: {character.status}</p>
-                        <p>Species: {character.species}</p>
-                        <p>Gender: {character.gender}</p>
-                        <p>Origin: {character.origin?.name}</p>
-                        <img src={character.image} alt="img" />
-                    </>
-                ) : (
-                    'This character does not exist'
-                )}
+        <div className={style.box}>
+            <div>
+                <div>
+                    {character.name ? (
+                        <>
+                            <h1>Id: {character.id}</h1>
+                            <h2>Name: {character.name}</h2>
+                            <h3>Status: {character.status}</h3>
+                            <h3>Species: {character.species}</h3>
+                            <h3>Gender: {character.gender}</h3>
+                            <h3>Origin: {character.origin?.name}</h3>
+                        </>
+                    ) : (
+                        ''
+                    )}
+                </div>
+                <hr />
+                <img className={style.image} src={character.image} alt="img" />
             </div>
-            <div className={style.stickerBox} >
-                <img className={style.sticker} src="../src/assets/img/01.png" />
+            <img className={style.sticker} src="../src/assets/img/01.png" />
+            <img className={style.bubble} src="../src/assets/img/18.png" />
+            <div className={style.bubbleText}>
+                <h2 className={style.typeWriter}>.Hahaha loser!</h2>
             </div>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100&display=swap');
+            </style>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+            </style>
         </div>
 
     );

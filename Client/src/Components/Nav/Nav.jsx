@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import style from './Nav.module.css'
 import { GiCardRandom } from 'react-icons/gi'
-import { FcHome, FcLike } from 'react-icons/fc'
+import { FcHome } from 'react-icons/fc'
 import { useSelector } from "react-redux";
+import { BsHearts, BsHouseDown } from "react-icons/bs"
+
+
 
 
 function Nav({ onSearch, randomId, logOut }) {
@@ -18,13 +21,14 @@ function Nav({ onSearch, randomId, logOut }) {
                 <div className={style.buttonsBar}>
                     <div className={style.home}>
                         <Link to="/home">
-                            <button className={style.homeButton} ><FcHome size="1.4rem" /></button>
+                            <button className={style.homeButton} >
+                                <BsHouseDown size="2rem" /></button>
                         </Link>
                     </div>
                     <div className={style.favorites}>
                         <Link to="/favorites">
                             <button className={style.favoritesButton} >
-                                <FcLike size="1.4rem" />
+                                <BsHearts size="2rem" />
                                 <span className={style.notification} class="notification" >{myFavorites}</span>
                             </button>
                         </Link>
@@ -49,6 +53,9 @@ function Nav({ onSearch, randomId, logOut }) {
                     <SearchBar onSearch={onSearch} randomId={randomId} />
                 </div>
             </div>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100&display=swap');
+            </style>
         </div>
     );
 };
