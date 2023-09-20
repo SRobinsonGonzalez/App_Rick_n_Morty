@@ -6,7 +6,7 @@
     border: none;
     background-color: #ff57bc7e;
     width: 70%;
-    height: 90px;
+    height: 70px;
 }
 
 .search {
@@ -65,5 +65,13 @@
         transition: 100ms;
         background-color: rgba(0, 0, 0, 0.300);
         color: white;
+    }
+
+    :hover {
+        transition: .5s ease;
+    }
+
+    :not(:hover) {
+        transition: .5s ease;
     }
 }

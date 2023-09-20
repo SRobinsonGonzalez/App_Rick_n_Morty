@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 import style from "./Card.module.css";
 
 function Card({ id, name, species, gender, status, origin, image, onClose }) {
-   const [isFav, setIsFav] = useState(false);
    const myFavorites = useSelector((state) => state.myFavorites);
-   const dispatch = useDispatch()
+   const [isFav, setIsFav] = useState(false);
    const [closeButton, setCloseButton] = useState(true);
    const [randomColorStyle, setRandomColorStyle] = useState({ backgroundColor: '' })
+   const dispatch = useDispatch()
 
    const handleFavorite = () => {
       if (isFav) {

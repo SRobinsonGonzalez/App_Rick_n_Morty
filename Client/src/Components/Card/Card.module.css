@@ -43,7 +43,7 @@
   max-width: 100%;
   overflow-wrap: break-word;
   position: absolute;
-  /* Se sobre pone de los demas elementos*/
+  padding-left: 1rem;
   transition-delay: calc(var(--transition-duration) / 8);
   transition-property: opacity, transform;
   transition-duration: calc(var(--transition-duration) / 2);

@@ -6,7 +6,7 @@
     /* Da espacio entre las cards de las filas */
     gap: 30px;
     /* Da espacio entre filas */
-    margin-top: 2rem;
+    margin-top: 3.5rem;
 }
 
 .sticker {
@@ -14,7 +14,7 @@
     right: 0%;
     bottom: 0;
     width: 15%;
-    z-index: 3;
+    z-index: 1;
     overflow: hidden;
     --transition-duration: 700ms;
     transition: transform var(--transition-duration);
@@ -26,14 +26,18 @@
     bottom: 12%;
     width: 20%;
     z-index: 4;
+    opacity: 0;
+    animation: showBubble 1s 1s forwards, hideBubble 1s 4s forwards;
 }
 
 .bubbleText {
     position: fixed;
-    right: 8%;
-    bottom: 22%;
+    right: 8.2%;
+    bottom: 20.5%;
     width: 20%;
     z-index: 5;
+    opacity: 0;
+    animation: showBubbleText 1s 1s forwards, hideBubbleText 1s 4s forwards;
 }
 
 .typeWriter {
@@ -43,35 +47,58 @@
     z-index: 6;
 }
 
-.sticker:hover {
-    transform: scale(1.03);
+@keyframes showBubble {
+    to {
+        opacity: 1;
+    }
 }
 
-.sticker:not(:hover)~.bubble,
-.sticker:not(:hover)~.bubbleText {
-    opacity: 0;
+@keyframes hideBubble {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes showBubbleText {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hideBubbleText {
+    to {
+        opacity: 0;
+    }
+}
+
+.sticker:hover {
+    transform: scale(1.1);
 }
 
 /*Todo responsive*/
 
 @media screen and (max-width: 768px) {
     .cards {
-        justify-content: center; /* Centra las tarjetas en pantallas pequeñas */
+        justify-content: center;
+        /* Centra las tarjetas en pantallas pequeñas */
     }
 
     .sticker,
     .typeWriter,
     .bubble,
     .bubbleText {
-        margin: 0; /* Elimina el margen */
+        margin: 0;
+        /* Elimina el margen */
     }
 
     .sticker:hover {
-        transform: none; /* Elimina la transformación al hacer hover en pantallas pequeñas */
+        transform: none;
+        /* Elimina la transformación al hacer hover en pantallas pequeñas */
     }
 
     .sticker:not(:hover)~.bubble,
     .sticker:not(:hover)~.bubbleText {
-        opacity: 1; /* Muestra los elementos de burbuja en pantallas pequeñas */
+        opacity: 1;
+        /* Muestra los elementos de burbuja en pantallas pequeñas */
     }
 }

@@ -3,10 +3,9 @@
     display: flex;
     /* position: relative; */
     align-items: center;
-    /* alinea los items en el centro (Y) */
     justify-content: center;
-    /* alinea los items en el centro (X) */
     justify-content: space-around;
+    height: 5rem;
     padding: 1%;
     box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 0px 10px 5px 5px rgba(0, 0, 0, 0.75);
@@ -28,7 +27,7 @@
     border: none;
     background-color: #1e94227f;
     width: 70%;
-    height: 90px;
+    height: 70px;
 }
 
 .home {
@@ -63,6 +62,14 @@
         color: white;
         /* Cambia el color del texto al hacer clic */
     }
+
+    :hover {
+        transition: 1s ease;
+    }
+
+    :not(:hover) {
+        transition: 1s ease;
+    }
 }
 
 .favorites {
@@ -94,6 +101,14 @@
         transition: 100ms;
         background-color: rgba(0, 0, 0, 0.300);
         color: white;
+    }
+
+    :hover {
+        transition: 1s ease;
+    }
+
+    :not(:hover) {
+        transition: 1s ease;
     }
 }
 
@@ -145,6 +160,14 @@
         background-color: rgba(0, 0, 0, 0.300);
         color: white;
     }
+
+    :hover {
+        transition: 1s ease;
+    }
+
+    :not(:hover) {
+        transition: 1s ease;
+    }
 }
 
 .logOut {
@@ -177,6 +200,14 @@
         transition: 100ms;
         background-color: rgba(0, 0, 0, 0.300);
         color: white;
+    }
+
+    :hover {
+        transition: 1s ease;
+    }
+
+    :not(:hover) {
+        transition: 1s ease;
     }
 }
 

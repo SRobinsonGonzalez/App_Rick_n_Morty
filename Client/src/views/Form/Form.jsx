@@ -48,13 +48,14 @@ const Form = ({ login }) => {
                         </span>
                         <input
                             type="email"
+                            id="email"
                             name="email"
                             value={userData.email}
                             onChange={handleChange}
                             autoComplete="off"
                             required
-                        />
-                        <label>Email</label>
+                            />
+                        <label htmlFor="email">Email</label>
                         <p className={style.errors} >{errors.email}</p>
                     </div>
                     <div className={style.inputBox}>
@@ -64,14 +65,15 @@ const Form = ({ login }) => {
                         <input
                             type={view ? 'text' : 'password'}
                             name="password"
+                            id="password"
                             value={userData.password}
                             onChange={handleChange}
                             required
                         />
-                        <label>Password</label>
+                        <label htmlFor="password">Password</label>
                         <p className={style.errors} >{errors.password}</p>
                         <button className={style.submit} type="submit">Submit</button>
-                        <h6>email: hh.robinson95@hotmail.com, password:Kiwii9</h6>
+                        <h6>email: hh.robinson95@hotmail.com password:Kiwii9</h6>
                         <style>
                             @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100&display=swap');
                         </style>

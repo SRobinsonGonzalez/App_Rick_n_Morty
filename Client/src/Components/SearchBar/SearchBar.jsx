@@ -4,6 +4,7 @@ import { BiSearchAlt } from 'react-icons/bi'
 
 
 export default function SearchBar({ onSearch }) {
+
    const [id, setId] = useState('');
    const handleChange = (event) => {
       setId(event.target.value);
@@ -18,6 +19,7 @@ export default function SearchBar({ onSearch }) {
                aria-expanded='false'
                onChange={handleChange} value={id}
                placeholder="Search Character"
+               name="search"
             />
          </div>
          <div className={style.add}>

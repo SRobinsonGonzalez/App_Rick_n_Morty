@@ -22,8 +22,8 @@ const Detail = () => {
 
     return (
         <div className={style.box}>
-            <div>
-                <div>
+            <div className={style.detailBox}>
+                <div className={style.box1}>
                     {character.name ? (
                         <>
                             <h1>Id: {character.id}</h1>
@@ -43,7 +43,7 @@ const Detail = () => {
             <img className={style.sticker} src="../src/assets/img/01.png" />
             <img className={style.bubble} src="../src/assets/img/18.png" />
             <div className={style.bubbleText}>
-                <h2 className={style.typeWriter}>.Hahaha loser!</h2>
+                <h2 className={style.typeWriter}>It's me again, loser!</h2>
             </div>
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100&display=swap');

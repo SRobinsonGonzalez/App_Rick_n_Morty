@@ -1,17 +1,32 @@
 .box {
     margin-top: 2rem;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     justify-content: center;
     align-items: center;
+    height: 54rem;
     font-family: 'Blinker', sans-serif;
     font-weight: bold;
-    color: #ffff;
+    color: #ffffff;
+}
+
+hr {
+    width: 85%;
+}
+
+.box1 {
+    padding: .2rem;
+}
+
+.detailBox {
+    background-color: rgba(0, 0, 0, 0.400);
+    width: 40%;
+    border-radius: 2rem;
 }
 
 .image {
-    padding-top: 1rem;
-    width: 380px;
+    padding: 1.5rem;
+    width: 400px;
     border-radius: 100%;
     /* border-radius: 1rem; */
 }
@@ -44,14 +59,18 @@
     bottom: 12%;
     width: 20%;
     z-index: 4;
+    opacity: 0;
+    animation: showBubble 1s 1s forwards, hideBubble 1s 4s forwards;
 }
 
 .bubbleText {
     position: fixed;
-    right: 8%;
-    bottom: 23%;
+    right: 7.8%;
+    bottom: 20.5%;
     width: 20%;
     z-index: 5;
+    opacity: 0;
+    animation: showBubbleText 1s 1s forwards, hideBubbleText 1s 4s forwards;
 }
 
 .typeWriter {
@@ -61,11 +80,30 @@
     z-index: 6;
 }
 
-.sticker:hover {
-    transform: scale(1.03);
+@keyframes showBubble {
+    to {
+        opacity: 1;
+    }
 }
 
-.sticker:not(:hover)~.bubble,
-.sticker:not(:hover)~.bubbleText {
-    opacity: 0;
+@keyframes hideBubble {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes showBubbleText {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hideBubbleText {
+    to {
+        opacity: 0;
+    }
+}
+
+.sticker:hover {
+    transform: scale(1.1);
 }
