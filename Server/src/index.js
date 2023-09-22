@@ -1,24 +1,8 @@
 const server = require('./app')
 const morgan = require('morgan');
-const PORT = 3001;
+const { conn } = require('./DB_connection')
 
-server.listen(PORT, () => {
-    console.log('Server raised in port: ' + PORT);
+server.listen(3001, () => {
+    conn.sync({ alter: true })
+    console.log('Server raised in port', 3001);
 });
-
-//TODO_________________________________________________________________________________________________________________________
-
-// const http = require("http");
-// // const data = require("./Utils/data")
-// const getCharById  = require('./Controllers/getCharById')
-
-// http.createServer((request, response) => {
-//     response.setHeader('Access-Control-Allow-Origin', '*');
-
-//     const { url } = request;
-
-//     if (url.includes("/rickandmorty/character/")) {
-//         const id = url.split('/').at(-1)
-//         getCharById(response, id)
-//     }
-// }).listen(3001, 'localhost');
