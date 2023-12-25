@@ -1,4 +1,4 @@
-@keyframes vibrate-1 {
+/* @keyframes vibrate-1 {
     0% {
         transform: translate(0)
     }
@@ -22,7 +22,7 @@
     100% {
         transform: translate(0)
     }
-}
+} */
 
 .backForm {
     display: flex;
