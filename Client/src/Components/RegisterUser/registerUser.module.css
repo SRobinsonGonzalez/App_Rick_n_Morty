@@ -1,0 +1,66 @@
+.formBox {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.NameBox{
+  display: flex;
+  justify-content: space-between;
+}
+
+.nicknameField input {
+  border-radius: 5px;
+  height: 40px;
+}
+
+.nameField Input {
+  border-radius: 5px;
+  height: 40px;
+}
+
+.lastnameField Input {
+  border-radius: 5px;
+  height: 40px;
+}
+
+.datePicker {
+  border-radius: 5px;
+  height: 40px;
+  width: 100%;
+}
+
+.emailField Input {
+  border-radius: 5px;
+  height: 40px;
+}
+
+.PasswordBox{
+  display: flex;
+  justify-content: space-between;
+}
+
+.passwordField Input {
+  height: 34px;
+}
+
+.submitBtn Button {
+  border-radius: 4px;
+  height: 45px;
+}
+
+.user-slide-short {
+  max-height: 50vh;
+}
+
+.googleBtn {
+  padding-top: 5px;
+}
+
+.googleBtn Button {
+  border-radius: 4px;
+}

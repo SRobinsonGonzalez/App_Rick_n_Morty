@@ -1,10 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './main.css'
-import App from './App'
-import { BrowserRouter } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import store from './redux/Store/store'
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import './main.css';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:3001/api';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

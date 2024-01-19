@@ -17,8 +17,11 @@ const getAllCharacters = require("./Character/get_allCharacters");
 const getCharacterById = require("./Character/get_characterById");
 const getCharacterByName = require("./Character/get_characterByName")
 
+// Episodes_Routes
+const getAllEpisodes = require("./Episodes/get_allEpisodes");
+
 module.exports = {
-    
+
     // User_Routes
     deleteUser,
     getUserById,
@@ -28,13 +31,16 @@ module.exports = {
     loginUser,
     registerUser,
     uploadUser,
-    
+
     // Favorites_Routes
     deleteFavorite,
     postFavorite,
-    
+
     // Characters_Routes
     getAllCharacters,
     getCharacterById,
-    getCharacterByName
+    getCharacterByName,
+
+    // Episodes_Routes
+    getAllEpisodes,
 };

@@ -1,0 +1,75 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  /* Va creando mas filas */
+  justify-content: center;
+  gap: 30px;
+  /* Da espacio entre filas */
+}
+
+.sticker {
+  position: fixed;
+  right: 1%;
+  bottom: 0;
+  width: 180px;
+  z-index: 1;
+  overflow: hidden;
+  --transition-duration: 700ms;
+  transition: transform var(--transition-duration);
+}
+
+.bubble {
+  position: fixed;
+  right: 90px;
+  bottom: 7.5%;
+  width: 290px;
+  z-index: 4;
+  opacity: 0;
+  animation: showBubble 1s 1s forwards;
+}
+
+.bubbleText {
+  position: fixed;
+  right: -8px;
+  bottom: 14%;
+  width: 350px;
+  z-index: 5;
+  opacity: 0;
+  animation: showBubbleText 1s 1s forwards;
+}
+
+.typeWriter {
+  color: black;
+  font-family: 'Press Start 2P', cursive;
+  font-style: 10px;
+  width: 70%;
+  z-index: 6;
+}
+
+@keyframes showBubble {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hideBubble {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes showBubbleText {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hideBubbleText {
+  to {
+    opacity: 0;
+  }
+}
+
+.sticker:hover {
+  transform: scale(1.1);
+}

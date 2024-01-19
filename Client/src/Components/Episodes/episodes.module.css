@@ -1,0 +1,8 @@
+.episodesBox {
+  align-items: center;
+  display: flex;
+  height: 83vh;
+  justify-content: center;
+  overflow-y: auto;
+  width: 100%;
+}

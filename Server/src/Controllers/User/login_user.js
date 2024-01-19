@@ -16,8 +16,8 @@ const loginUser = async (req, res) => {
     if (!passwordMatch) {
       return res.status(401).json({ error: "Invalid password. Please verify your password and try again" });
     };
-    const accessToken = jwt.sign({ userId: user._id, isAdmin: user.isAdmin }, secretKey, { expiresIn: "30m" });
-    const refreshToken = jwt.sign({ userId: user._id }, secretKey, { expiresIn: "24h" });
+    const accessToken = jwt.sign({ userId: user._id, isAdmin: user.isAdmin, isOwner: user.isOwner }, secretKey, { expiresIn: "30m" });
+    const refreshToken = jwt.sign({ userId: user._id }, secretKey, { expiresIn: "7d" });
     res.status(200).json({
       accessToken,
       refreshToken,

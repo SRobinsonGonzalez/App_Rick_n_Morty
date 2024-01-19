@@ -1,47 +1,116 @@
 import axios from 'axios';
-export const ADD_FAV = 'ADD_FAV';
-export const REMOVE_FAV = 'REMOVE_FAV';
-export const FILTER = 'FILTER';
-export const ORDER = 'ORDER';
+import { ADD_FAVORITE, DELETE_FAVORITE, GET_ALL_CHARACTERS, GET_EPISODES, GET_USER_DATA, LOGIN, LOGOUT } from './action-types';
 
-
-export const addFav = (favorite) => {
+const getAllCharacters = () => {
+  const endpoint = "/character"
+  return async (dispatch) => {
     try {
-        return async (dispatch) => {
-            const { data } = await axios.post('http://localhost:3001/rickandmorty/fav', favorite);
-            return dispatch({
-                type: ADD_FAV,
-                payload: data
-            });
-        };
+      const response = await axios.get(endpoint);
+      dispatch({
+        type: GET_ALL_CHARACTERS,
+        payload: response.data
+      });
     } catch (error) {
-        console.log(error.message);
+      console.error(error);
+      throw Error(error.response.data.error);
     };
+  };
 };
-export const removeFav = (id) => {
+
+const addFavorite = (favorite) => {
+  const endpoint = "/favorites/"
+  return async (dispatch) => {
     try {
-        return async (dispatch) => {
-            const { data } = await axios.delete('http://localhost:3001/rickandmorty/fav/' + id)
-            return dispatch({
-                type: REMOVE_FAV,
-                payload: data
-            });
-        };
+      const response = await axios.post(endpoint, favorite);
+      dispatch({
+        type: ADD_FAVORITE,
+        payload: response.data
+      });
     } catch (error) {
-        console.log(error.message);
+      console.error(error);
+      throw Error(error.response.data.error);
+    };
+  };
+};
+
+const deleteFavorite = (id) => {
+  const endpoint = `/favorites/delete/${id}`
+  return async (dispatch) => {
+    try {
+      const response = await axios.delete(endpoint);
+      return dispatch({
+        type: DELETE_FAVORITE,
+        payload: response.data
+      });
+    } catch (error) {
+      console.error(error.message);
+      throw Error(error.response.data.error);
+    };
+  };
+};
+
+const loginUser = (userData) => {
+  const endpoint = '/user/login'
+  return async (dispatch) => {
+    try {
+      const response = await axios.post(endpoint, userData);
+      return dispatch({
+        type: LOGIN,
+        payload: response.data
+      });
+    } catch (error) {
+      console.error(error.message);
+      throw Error(error.response.data.error);
+    };
+  };
+};
+
+const logoutUser = () => {
+  return async (dispatch) => {
+    dispatch({
+      type: LOGOUT
+    });
+  };
+};
+
+const getUserData = (id) => {
+  const endpoint = `/user/${id}`
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(endpoint);
+      return dispatch({
+        type: GET_USER_DATA,
+        payload: response.data
+      });
+    } catch (error) {
+      console.error(error);
+      throw Error(error.response.data.error);
+    };
+  };
+};
+
+const getEpisodes = (id) => {
+  const endpoint = `/episodes/${id}`;
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(endpoint);
+      return dispatch({
+        type: GET_EPISODES,
+        payload: response.data
+      });
+    } catch (error) {
+      console.error(error);
+      throw Error(error.response.data.error);
     }
+  };
 };
 
-export const filterCards = (gender) => {
-    return {
-        type: 'FILTER',
-        payload: gender
-    };
-};
-
-export const orderCards = (order) => {
-    return {
-        type: 'ORDER',
-        payload: order
-    };
+export {
+  getAllCharacters,
+  addFavorite,
+  deleteFavorite,
+  loginUser,
+  logoutUser,
+  getUserData,
+  getEpisodes
 };

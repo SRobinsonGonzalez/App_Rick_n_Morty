@@ -1,11 +1,13 @@
 const router = require('express').Router();
 const userRouter = require("./user_router");
 const tokensRouter = require("./tokens_router");
+const episodesRouter = require("./episodes_router");
 const characterRouter = require("./character_router");
 const favoritesRouter = require("./favorites_router");
 
 router.use("/api/user", userRouter);
 router.use("/api/tokens", tokensRouter);
+router.use("/api/episodes", episodesRouter);
 router.use("/api/character", characterRouter);
 router.use("/api/favorites", favoritesRouter);
 

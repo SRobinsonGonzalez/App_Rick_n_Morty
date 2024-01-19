@@ -13,12 +13,12 @@ const {
 } = require("../Controllers/index");
 
 // userRouter.get("/", getAllUsers);
-// userRouter.get("/:id", getUserById);
-userRouter.get("/login", loginUser);
+userRouter.get("/:id", getUserById);
+userRouter.post("/login", loginUser);
 // userRouter.get("/activates/ture", getUsersActives);
 // userRouter.get("/activates/false", getUsersActivesFalse);
 userRouter.post("/register", registerUser);
-// userRouter.put("/update/:id", uploadUser);
+userRouter.put("/update/:id", uploadUser);
 // userRouter.delete("/delete/:id", deleteUser);
 
 module.exports = userRouter;

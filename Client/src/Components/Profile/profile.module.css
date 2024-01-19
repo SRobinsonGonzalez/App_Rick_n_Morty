@@ -1,0 +1,22 @@
+.profileBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 83vh;
+}
+
+.formBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.PasswordBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.NameBox {
+  display: flex;
+  justify-content: space-between;
+}

@@ -2,42 +2,9 @@
     display: flex;
     flex-wrap: wrap;
     /* Va creando mas filas */
-    justify-content: space-evenly;
-    /* Da espacio entre las cards de las filas */
+    justify-content: center;
     gap: 30px;
     /* Da espacio entre filas */
-    margin-top: 3.5rem;
-}
-
-.sticker {
-    position: fixed;
-    right: 0%;
-    bottom: 0;
-    width: 15%;
-    z-index: 1;
-    overflow: hidden;
-    --transition-duration: 700ms;
-    transition: transform var(--transition-duration);
-}
-
-.bubble {
-    position: fixed;
-    right: 8.5%;
-    bottom: 12%;
-    width: 20%;
-    z-index: 4;
-    opacity: 0;
-    animation: showBubble 1s 1s forwards, hideBubble 1s 4s forwards;
-}
-
-.bubbleText {
-    position: fixed;
-    right: 8.2%;
-    bottom: 20.5%;
-    width: 20%;
-    z-index: 5;
-    opacity: 0;
-    animation: showBubbleText 1s 1s forwards, hideBubbleText 1s 4s forwards;
 }
 
 .typeWriter {

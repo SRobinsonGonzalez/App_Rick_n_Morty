@@ -1,93 +1,141 @@
-import './App.css';
-import Cards from './Components/Cards/Cards.jsx';
-import Nav from './Components/Nav/Nav';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
-import About from './views/About/About';
-import Detail from './views/Detail/Detail';
-import Error from './Components/Error/Error';
-import Form from './views/Form/Form';
-import Favorites from './Components/Favorites/Favorites';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { notification } from 'antd';
+import axios from 'axios';
+import './App.css';
 
+import { loginUser } from './redux/Actions/actions.js';
+import Detail from './views/Detail/Detail.jsx';
+import Error from './Components/Error/Error';
+import Nav from './Components/Nav/Nav.jsx';
+import LoginForm from './views/Form/Form';
 
 function App() {
-   const navigate = useNavigate();
-   const [characters, setCharacters] = useState([]);
-   const [access, setAccess] = useState(false);
+  const userAccessToken = localStorage.getItem('accessToken');
+  const [characters, setCharacters] = useState([]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-   function randomHandler() {
-      let randomId = (Math.random() * 826).toFixed();
-      randomId = parseInt(randomId);
-      if (!characters.includes(randomId)) {
-         onSearch(randomId);
+  const login = (userData) => {
+    dispatch(loginUser(userData))
+      .then(() => {
+        const newAccessToken = localStorage.getItem('accessToken');
+        if (newAccessToken) {
+          navigate('/home');
+        }
+      })
+      .catch((error) => {
+        notification.error({
+          message: 'Error',
+          description: error.message,
+          placement: 'bottomLeft'
+        });
+      });
+  };
+
+  useEffect(() => {
+    userAccessToken && navigate('/home');
+    !userAccessToken && navigate('/');
+  }, [userAccessToken]);
+
+  const onSearch = async (id) => {
+    try {
+      if (!characters.find(character => character.id === Number(id))) {
+        const { data } = await axios.get(`/character/${id}`);
+        if (data.id) {
+          setCharacters((oldCharacters) => [...oldCharacters, data]);
+        } else {
+          notification.error({
+            message: 'Error',
+            description: `¡There are no characters with this ID ${id}!`,
+            placement: 'bottomLeft'
+          });
+        };
       } else {
-         alert('Este personaje ya ha sido agregado');
-         return;
+        notification.info({
+          message: 'Sorry',
+          description: 'This character has already been added',
+          placement: 'bottomLeft'
+        });
       };
-   };
+    } catch (error) {
+      console.error(error.message);
+    };
+  };
 
-   async function login(userData) {
-      try {
-         const { email, password } = userData;
-         const URL = 'http://localhost:3001/rickandmorty/login/';
-         const { data } = await axios(URL + `?email=${email}&password=${password}`);
-         const { access } = data;
-         setAccess(access);
-         access && navigate('/home');
-      } catch (error) {
-         alert(error.message);
-      };
-   };
+  const onSearchName = async (name) => {
+    try {
+      const { data } = await axios.get(`/character/search?name=${name}`);
+      if (Array.isArray(data) && data.length > 0) {
+        const existingNames = characters.map((character) => character.name.toLowerCase());
+        const duplicateNames = [];
+        const newCharacters = data.filter((character) => {
+          const lowercaseName = character.name.toLowerCase();
+          if (!existingNames.includes(lowercaseName)) {
+            existingNames.push(lowercaseName);
+            return true;
+          } else {
+            duplicateNames.push(character.name);
+            return false;
+          }
+        });
+        if (duplicateNames.length > 0) {
+          notification.info({
+            message: 'Sorry',
+            description: `Characters ${duplicateNames.join(', ')} are already added`,
+            placement: 'bottomLeft'
+          });
+        }
+        if (newCharacters.length > 0) {
+          setCharacters((oldCharacters) => [...oldCharacters, ...newCharacters]);
+        }
+      } else {
+        notification.info({
+          message: 'Sorry',
+          description: 'No characters found with that name',
+          placement: 'bottomLeft'
+        });
+      }
+    } catch (error) {
+      console.error(error.message);
+      notification.info({
+        message: 'Sorry',
+        description: 'No characters found with that name',
+        placement: 'bottomLeft'
+      });
+    }
+  };
 
-   useEffect(() => {
-      !access && navigate('/');
-   }, [access]);
+  const randomHandler = () => {
+    let randomId = (Math.random() * 826).toFixed();
+    console.log(randomId);
+    randomId = parseInt(randomId);
+    if (!characters.includes(randomId)) {
+      onSearch(randomId);
+    } else {
+      return notification.info({
+        message: 'Sorry',
+        description: 'This character has already been added',
+        placement: 'bottomRight'
+      });
+    };
+  };
 
-   const onSearch = async (id) => {
-      try {
-         // if (!characters.find(character => character.id === Number(id))) {
-         if (!characters.some(character => character.id == id)) {
-            const { data } = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`);
-            if (data.name) {
-               setCharacters((oldChars) => [...oldChars, data]);
-            } else {
-               alert('¡There are no characters with this ID!');
-            };
-         } else {
-            alert('This character has already been added');
-         };
-      } catch (error) {
-         console.log(error.message);
-      };
-   };
+  const onClose = (id) => {
+    setCharacters(characters.filter((character) => character.id !== parseInt(id)));
+  };
 
-   const onClose = (id) => {
-      setCharacters(characters.filter((character) => character.id !== parseInt(id)));
-   };
-
-   // function logOut() {
-   //    setAccess(false);
-   //    navigate('/')
-   // }
-
-   const location = useLocation();
-
-   return (
-      <div className='App'>
-         {/* {pathname !== "/" ? <Nav onSearch={onSearch} randomId={randomHandler} /> : null} */}
-         {location.pathname !== "/" && <Nav onSearch={onSearch} randomId={randomHandler} />}
-         <Routes>
-            <Route path='/' element={<Form login={login} /*logOut={logOut}*/ />} />
-            <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/favorites' element={<Favorites />} />
-            <Route path='/detail/:id' element={<Detail />} />
-            <Route path='*' element={<Error />} />
-         </Routes>
-      </div>
-   );
+  return (
+    <div className='App'>
+      <Routes>
+        <Route path='/' element={<LoginForm login={login} />} />
+        {userAccessToken && <Route path='/home' element={<Nav characters={characters} onClose={onClose} onSearch={onSearch} onSearchName={onSearchName} randomHandler={randomHandler} />} />}
+        <Route path='/detail/:id' element={<Detail />} />
+        <Route path='*' element={<Error />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;

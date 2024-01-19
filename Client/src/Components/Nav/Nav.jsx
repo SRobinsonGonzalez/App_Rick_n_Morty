@@ -1,73 +1,196 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import CardsSearchContainer from "../CardsSearchContainer/cardsSearchContainer";
+import Favorites from "../Favorites/Favorites";
 import SearchBar from "../SearchBar/SearchBar";
+import About from "../../views/About/about";
+import Episodes from "../Episodes/episodes";
+import Home from "../../views/Home/home";
+import Profile from "../Profile/profile";
+import React, { useEffect, useState } from "react";
 import style from './Nav.module.css'
-import { GiCardRandom } from 'react-icons/gi'
-import { useSelector } from "react-redux";
-import { BsHearts, BsHouseDown } from "react-icons/bs"
+import {
+  HeartOutlined,
+  HomeOutlined,
+  LogoutOutlined,
+  MehOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  UserOutlined,
+  VideoCameraOutlined
+} from '@ant-design/icons';
+import { Avatar, Layout, Menu, Button, theme } from 'antd';
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserData, logoutUser } from "../../redux/Actions/actions";
 
-function Nav({ onSearch, randomId, logOut }) {
-    const favorites = useSelector((state) => state.myFavorites);
-    const myFavorites = favorites.length;
+const { Content, Header, Footer, Sider } = Layout;
 
-    const location = useLocation();
+const defaultProps = [
+  {
+    key: '1',
+    icon: <HomeOutlined />,
+    label: 'Home',
+    path: '/home',
+  },
+  {
+    key: '2',
+    icon: <UserOutlined />,
+    label: 'Profile',
+    path: '/profile',
+  },
+  {
+    key: '3',
+    icon: <VideoCameraOutlined />,
+    label: 'Episodes',
+    path: '/episodes',
+  },
+  {
+    key: '4',
+    icon: <HeartOutlined />,
+    label: 'Favorites',
+    path: '/favorites',
+  },
+  {
+    key: '5',
+    icon: <MehOutlined />,
+    label: 'About',
+    path: '/about',
+  },
+  {
+    key: '6',
+    icon: <LogoutOutlined />,
+    label: 'Logout',
+  },
+];
 
-    const shouldShowRandomButton = location.pathname === "/home";
 
-    const shouldShowSearchBar = location.pathname === "/home";
+function Nav({ characters, onClose, onSearch, onSearchName, randomHandler }) {
+  const [pathname, setPathname] = useState('/home');
+  const userId = localStorage.getItem('userId');
+  const userData = useSelector((state) => state.userData);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    return (
-        <div className={style.navBar}>
-            <div className={style.backgroundBar}>
-                <div className={style.buttonsBar}>
-                    <div className={style.home}>
-                        <Link to="/home">
-                            <button className={style.homeButton}>
-                                <BsHouseDown size="2rem" />
-                            </button>
-                        </Link>
-                    </div>
-                    <div className={style.favorites}>
-                        <Link to="/favorites">
-                            <button className={style.favoritesButton}>
-                                <BsHearts size="2rem" />
-                                <span className={style.notification}>
-                                    {myFavorites}
-                                </span>
-                            </button>
-                        </Link>
-                    </div>
-                    <div className={style.about}>
-                        <Link to="/about">
-                            <button className={style.aboutButton}>About</button>
-                        </Link>
-                    </div>
-                    <div className={style.logOut}>
-                        <Link to="/">
-                            <button className={style.logOutButton} onClick={logOut}>
-                                Log Out
-                            </button>
-                        </Link>
-                    </div>
-                </div>
+  useEffect(() => {
+    dispatch(getUserData(userId));
+  }, [])
+
+  // Ant Designe
+
+  const [collapsed, setCollapsed] = useState(true);
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
+
+  const handleMenuClick = ({ key }) => {
+    const selectedItem = defaultProps.find((item) => item.key === key);
+    if (selectedItem.label === 'Logout') {
+      dispatch(logoutUser())
+        .then(() => {
+          const accessToken = localStorage.getItem('accessToken');
+          if (!accessToken) {
+            navigate('/');
+          }
+        })
+    } else {
+      setPathname(selectedItem.path);
+    };
+  };
+
+  const nickname = userData.nickname;
+  const profileImage = userData.profileImage;
+
+  return (
+    <div className={style.navBar}>
+      <Layout>
+        <Sider
+          collapsible
+          collapsed={collapsed}
+          trigger={null}
+          width={'15%'}
+          theme="dark"
+        >
+          <div className="demo-logo-vertical" />
+          <div style={{
+            alignItems: 'center',
+            color: 'white',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}>
+            <Avatar src={profileImage ? profileImage : <UserOutlined />} size={54} style={{ margin: '5px' }} />
+            {!collapsed ? <p>Welcome {nickname}</p> : null}
+          </div>
+          <Menu
+            theme="dark"
+            mode="inline"
+            items={defaultProps}
+            onClick={handleMenuClick}
+          />
+        </Sider>
+        <Layout>
+          <Header
+            style={{
+              padding: 2,
+              background: colorBgContainer,
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center'
+            }}
+          >
+            <Button
+              type="text"
+              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+              onClick={() => setCollapsed(!collapsed)}
+              style={{
+                width: 64,
+                height: 64,
+              }}
+            />
+            <SearchBar onSearch={onSearch} onSearchName={onSearchName} randomHandler={randomHandler} />
+          </Header>
+          <Content
+            style={{
+              background: colorBgContainer,
+              borderRadius: borderRadiusLG,
+              height: '83vh',
+              margin: '25px 16px 0',
+              overflow: 'auto',
+            }}
+          >
+            {characters.length === 0 && pathname === "/home"
+              ? <div className={style.videoBox}>
+                <video
+                  autoPlay
+                  className={style.video}
+                  loop
+                  muted
+                  src='../../src/assets/clips/01.mp4'
+                />
+              </div>
+              : <div className={`${style.cardsBox} ${characters.length > 0 ? style.show : ""}`}>
+                <CardsSearchContainer characters={characters} onClose={onClose} />
+              </div>
+            }
+            <div>
+              {pathname === "/home" && <Home />}
+              {pathname === "/profile" && <Profile />}
+              {pathname === "/episodes" && <Episodes />}
+              {pathname === "/favorites" && <Favorites />}
+              {pathname === "/about" && <About />}
             </div>
-            {shouldShowRandomButton && (
-                <button className={style.random} onClick={randomId}>
-                    <GiCardRandom size="6rem" />
-                </button>
-            )}
-            {shouldShowSearchBar && (
-                <div className={style.backgroundBar}>
-                    <div className={style.navSearch}>
-                        <SearchBar onSearch={onSearch} randomId={randomId} />
-                    </div>
-                </div>
-            )}
-            <style>
-                @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100&display=swap');
-            </style>
-        </div>
-    );
+          </Content>
+          <Footer
+            style={{
+              textAlign: 'center',
+            }}
+          >
+            Ant Design ©2023 Created by Ant UED
+          </Footer>
+        </Layout>
+      </Layout>
+    </div>
+  );
 }
 
 export default Nav;

@@ -9,6 +9,7 @@ const registerUser = async (req, res) => {
       lastName,
       email,
       password,
+      profileImage,
       birthdate,
       googleId
     } = req.body;

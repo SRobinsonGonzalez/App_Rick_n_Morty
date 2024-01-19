@@ -1,0 +1,39 @@
+.photoContainer {
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+  transition: .4s ease all;
+}
+
+.photoContainer.show {
+  visibility: visible;
+  height: 100%;
+  opacity: 1;
+}
+
+.formBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.formBox h3 {
+  font-size: .9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.formBox h1 {
+  color: white;
+  font-family: 'Blinker', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.textAfter {
+  color: white;
+  text-decoration-line: underline;
+}

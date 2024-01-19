@@ -1,167 +1,93 @@
-/* @keyframes vibrate-1 {
-    0% {
-        transform: translate(0)
-    }
-
-    20% {
-        transform: translate(-2px, 2px)
-    }
-
-    40% {
-        transform: translate(-2px, -2px)
-    }
-
-    60% {
-        transform: translate(2px, 2px)
-    }
-
-    80% {
-        transform: translate(2px, -2px)
-    }
-
-    100% {
-        transform: translate(0)
-    }
-} */
-
 .backForm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url('https://images.squarespace-cdn.com/content/v1/56049db4e4b0eddafbc7b690/1580878578344-PT1N8M9NTQBGNVIA9HE3/RM_Lab_rick_v01.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('https://images.squarespace-cdn.com/content/v1/56049db4e4b0eddafbc7b690/1580878578344-PT1N8M9NTQBGNVIA9HE3/RM_Lab_rick_v01.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ImgBox{
+  display: flex;
+  justify-content: left;
+  width: 60%;
 }
 
 .imgForm {
-    animation: vibrate-1 .3s linear infinite both;
-    display: flex;
-    margin-right: 60px;
+  width: 90%;
 }
 
 .formBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 500px;
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(10px);
-    border-radius: 50px;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 0 0 20px 0;
 }
 
-/* .formBox::before {
-    border-radius: 50px;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 4px solid black;
-    opacity: 0.28
-} */
+.login {
+  font-size: 25px;
+  font-family: 'Blinker', sans-serif;
+  color: #fff;
+}
 
-.form {
+.emailField Input {
+  border-radius: 5px;
+  height: 45px;
+}
+
+.passwordField Input {
+  height: 34px;
+}
+
+.spanBox {
+  display: flex;
+  align-items: center;
+  margin: 0 0 1.7rem;
+}
+
+.span {
+  margin: 0 5px;
+  color: white;
+}
+
+@media screen and (max-width: 1024px) {
+  .backForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+    /* height: 100vh; */
+    /* min-height: 100vh; */
+    background: url('https://images.squarespace-cdn.com/content/v1/56049db4e4b0eddafbc7b690/1580878578344-PT1N8M9NTQBGNVIA9HE3/RM_Lab_rick_v01.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 50%;
+  }
 
-.login {
-    font-size: 250%;
-    font-family: 'Blinker', sans-serif;
-    color: #fff;
-}
+  .ImgBox{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+  }
 
-.inputBox {
-    margin-bottom: 6%;
-    position: relative;
-    width: 310px;
-}
+  .imgForm {
+    width: 50%;
+  }
 
-.inputBox label {
-    position: absolute;
-    top: 0;
-    left: 5%;
-    font-size: 18px;
-    color: #fff;
-    pointer-events: none;
-    transition: .5s;
-}
-
-.inputBox input:focus~label,
-.inputBox input:valid~label {
-    top: -20px;
-}
-
-.inputBox input {
-    border: none;
-    border-bottom: 2px solid #fff;
-    width: 84%;
-    height: 30px;
-    background: transparent;
-    outline: none;
-    font-size: 1rem;
-    color: #fff;
-    padding: 0 35px 0 5px;
-}
-
-.errors {
-    color: #fff;
-}
-
-.inputBox .icon {
-    margin-right: 10px;
-    background-image: '';
-    position: absolute;
-    top: -24px;
-    right: 0%;
-    line-height: 80px;
-
-    :active {
-        transform: scale(0.90);
-        transition: 100ms;
-    }
-}
-
-.form .inputBox:first-of-type .icon {
-    top: -24px;
-}
-
-.log {
-    width: 50px;
-}
-
-.submit {
-    /* position: relative; */
-    font-size: 1.6rem;
-    font-family: 'Blinker', sans-serif;
-    width: 100%;
-    height: 48px;
-    background: rgba(30, 186, 10, 0.8);
-    border: none;
-    border-radius: 5rem;
-    cursor: pointer;
-    color: #fff;
-    margin-top: 4%;
-}
-
-.submit:hover {
-    scale: .85;
-    transition: 500ms;
-    box-shadow: 0 0 5px rgb(30, 255, 0),
-        0 0 25px rgb(30, 255, 0), 0 0 50px rgb(30, 255, 0),
-        0 0 100px rgb(30, 255, 0), 0 0 200px rgb(30, 255, 0);
-}
-
-.submit:not(:hover) {
-    transition: 500ms;
-}
-
-h6 {
-
-    color: #fff;
+  .formBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 0 0 20px 0;
+  }
 }
