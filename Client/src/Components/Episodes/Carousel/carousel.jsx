@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Carousel, Col, Row } from "antd";
-import style from "./carousel.module.css"
+import style from "./carousel.module.css";
 
 import seasonOneStyle from "../../../assets/img/19.png";
 import seasonTwoStyle from "../../../assets/img/20.png";
@@ -19,7 +19,7 @@ const contentStyleOne = {
   borderRadius: '6px',
   color: '#fff',
   height: '700px',
-  lineHeight: '160px',
+  lineHeight: '450px',
   margin: '0',
   textAlign: 'center',
 };
@@ -29,7 +29,7 @@ const contentStyleTwo = {
   borderRadius: '6px',
   color: '#fff',
   height: '700px',
-  lineHeight: '160px',
+  lineHeight: '450px',
   margin: '0',
   textAlign: 'center',
 };
@@ -39,7 +39,7 @@ const contentStyleThree = {
   borderRadius: '6px',
   color: '#fff',
   height: '700px',
-  lineHeight: '160px',
+  lineHeight: '450px',
   margin: '0',
   textAlign: 'center',
 };
@@ -49,7 +49,7 @@ const contentStyleFour = {
   borderRadius: '6px',
   color: '#fff',
   height: '700px',
-  lineHeight: '160px',
+  lineHeight: '450px',
   margin: '0',
   textAlign: 'center',
 };
@@ -59,52 +59,84 @@ const contentStyleFive = {
   borderRadius: '6px',
   color: '#fff',
   height: '700px',
-  lineHeight: '160px',
+  lineHeight: '450px',
   margin: '0',
   textAlign: 'center',
 };
 
 const SeasonsCarousel = () => {
+  const [currentSeason, setCurrentSeason] = useState(1);
+  const [isEntering, setIsEntering] = useState(true);
+
+  const handleButtonClick = (seasonNumber) => {
+    setIsEntering(true);
+    setTimeout(() => {
+      setCurrentSeason(seasonNumber);
+      setIsEntering(false);
+    }, 1000);
+  };
+
+  const getSeasonComponent = () => {
+    switch (currentSeason) {
+      case 1:
+        return <SeasonOne />;
+      case 2:
+        return <SeasonTwo />;
+      case 3:
+        return <SeasonThree />;
+      case 4:
+        return <SeasonFour />;
+      case 5:
+        return <SeasonFive />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className={style.seasonsCarouselBox}>
       <div className={style.seasonsBox}>
         <Row gutter={15}>
-          <Col span={12}>
+          <Col xs={24} sm={24} md={12} lg={12} xl={12}>
             <Carousel autoplay>
               <div>
                 <div style={contentStyleOne}>
-                  <Button>Episodes</Button>
+                  <Button onClick={() => handleButtonClick(1)} style={{ marginLeft: '5%' }}>Episodes</Button>
                 </div>
               </div>
               <div>
                 <div style={contentStyleTwo}>
-                  <Button>Episodes</Button>
+                  <Button onClick={() => handleButtonClick(2)} style={{ marginLeft: '5%' }}>Episodes</Button>
                 </div>
               </div>
               <div>
                 <div style={contentStyleThree}>
-                  <Button>Episodes</Button>
+                  <Button onClick={() => handleButtonClick(3)} style={{ marginLeft: '5%' }}>Episodes</Button>
                 </div>
               </div>
               <div>
                 <div style={contentStyleFour}>
-                  <Button>Episodes</Button>
+                  <Button onClick={() => handleButtonClick(4)} style={{ marginLeft: '5%' }}>Episodes</Button>
                 </div>
               </div>
               <div>
                 <div style={contentStyleFive}>
-                  <Button>Episodes</Button>
+                  <Button onClick={() => handleButtonClick(5)} style={{ marginLeft: '5%' }}>Episodes</Button>
                 </div>
               </div>
             </Carousel>
           </Col>
-          <Col span={12}>
-            <SeasonFive />
+          <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+            <div className={style.container}>
+              <div className={`${style.content} ${isEntering ? "" : style.enter} ${style.opacityTransition}`}>
+                {getSeasonComponent()}
+              </div>
+            </div>
           </Col>
         </Row>
       </div>
-    </div >
-  )
+    </div>
+  );
 };
 
 export default SeasonsCarousel;

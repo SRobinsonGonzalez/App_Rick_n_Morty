@@ -5,16 +5,16 @@ import style from "./seasonThree.module.css"
 import { getEpisodes } from "../../../redux/Actions/actions";
 import { ConfigProvider, Menu } from 'antd';
 
-import img1 from "../../../assets/img/Cap.1.png";
-import img2 from "../../../assets/img/Cap.2.png";
-import img3 from "../../../assets/img/Cap.3.png";
-import img4 from "../../../assets/img/Cap.4.png";
-import img5 from "../../../assets/img/Cap.5.png";
-import img6 from "../../../assets/img/Cap.6.png";
-import img7 from "../../../assets/img/Cap.7.png";
-import img8 from "../../../assets/img/Cap.8.png";
-import img9 from "../../../assets/img/Cap.9.png";
-import img10 from "../../../assets/img/Cap.10.png";
+import img1 from "../../../assets/img/Cap.22.png";
+import img2 from "../../../assets/img/Cap.23.png";
+import img3 from "../../../assets/img/Cap.24.png";
+import img4 from "../../../assets/img/Cap.25.png";
+import img5 from "../../../assets/img/Cap.26.png";
+import img6 from "../../../assets/img/Cap.27.png";
+import img7 from "../../../assets/img/Cap.28.png";
+import img8 from "../../../assets/img/Cap.29.png";
+import img9 from "../../../assets/img/Cap.30.png";
+import img10 from "../../../assets/img/Cap.31.png";
 import imgHBO from "../../../assets/img/HBO.png";
 
 function getItem(label, key, icon, children, type) {
@@ -46,7 +46,6 @@ const SeasonThree = () => {
     console.log('click ', e);
   };
 
-  console.log(episodes);
   const items = [
     {
       type: 'divider',
@@ -99,7 +98,7 @@ const SeasonThree = () => {
               Stream
             </span>
             <a
-              href='https://play.hbomax.com/page/urn:hbo:page:GXkRkPgoDro7CZgEAABqh:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1101lybx5eZD'
+              href='https://play.hbomax.com/page/urn:hbo:page:GXrWioQKSk45awgEAAAQT:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1100lybuMAdY'
               rel="noopener noreferrer"
               target="_blank"
             />
@@ -146,7 +145,7 @@ const SeasonThree = () => {
               Stream
             </span>
             <a
-              href='https://play.hbomax.com/page/urn:hbo:page:GXl2aAgboTSLCHAEAAAm7:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1100lyb5jXA5'
+              href='https://play.hbomax.com/page/urn:hbo:page:GXrWxVQ0mlTmqwwEAAACL:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1100lybuMAme'
               rel="noopener noreferrer"
               target="_blank"
             />
@@ -193,7 +192,7 @@ const SeasonThree = () => {
               Stream
             </span>
             <a
-              href='https://play.hbomax.com/page/urn:hbo:page:GXrWp8QRaGr7DwgEAAAWC:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1100lyb6iRHk'
+              href='https://play.hbomax.com/page/urn:hbo:page:GXrWxGQtSvzmqwwEAAABM:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1100lybuMAo9'
               rel="noopener noreferrer"
               target="_blank"
             />
@@ -240,7 +239,7 @@ const SeasonThree = () => {
               Stream
             </span>
             <a
-              href='https://play.hbomax.com/page/urn:hbo:page:GXrWp5wLB6I5awgEAAATx:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1100lyb6iUaE'
+              href='https://play.hbomax.com/page/urn:hbo:page:GXrWtxg1SSIayhAEAAAZF:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1100lybuMAvL'
               rel="noopener noreferrer"
               target="_blank"
             />
@@ -287,7 +286,7 @@ const SeasonThree = () => {
               Stream
             </span>
             <a
-              href='https://play.hbomax.com/page/urn:hbo:page:GXrWrJwmCoI5awgEAAAU-:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1100lyb6iULc  '
+              href='https://play.hbomax.com/page/urn:hbo:page:GXrWiqwUfhb7DwgEAAARd:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1100lybuMAzU'
               rel="noopener noreferrer"
               target="_blank"
             />
@@ -334,7 +333,7 @@ const SeasonThree = () => {
               Stream
             </span>
             <a
-              href='https://play.hbomax.com/page/urn:hbo:page:GXl2aIAEq2yLCHAEAAAoZ:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1011lybTuUKS'
+              href='https://play.hbomax.com/page/urn:hbo:page:GXrWqhwXeIr7DwgEAAAWw:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1011lycij5gX'
               rel="noopener noreferrer"
               target="_blank"
             />
@@ -381,7 +380,7 @@ const SeasonThree = () => {
               Stream
             </span>
             <a
-              href='https://play.hbomax.com/page/urn:hbo:page:GXrWvxQdjeTmqwwEAAAAJ:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1011lybTuUQf'
+              href='https://play.hbomax.com/page/urn:hbo:page:GXrWrOwodjY5awgEAAAVL:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1101lybVwNK8'
               rel="noopener noreferrer"
               target="_blank"
             />
@@ -428,7 +427,7 @@ const SeasonThree = () => {
               Stream
             </span>
             <a
-              href='https://play.hbomax.com/page/urn:hbo:page:GXrWrMQijDoayhAEAAAXj:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1101lybx6Ppz'
+              href='https://play.hbomax.com/page/urn:hbo:page:GXrWozgwUiY5awgEAAAS_:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1100lybuMBgE'
               rel="noopener noreferrer"
               target="_blank"
             />
@@ -475,7 +474,7 @@ const SeasonThree = () => {
               Stream
             </span>
             <a
-              href='https://play.hbomax.com/page/urn:hbo:page:GXrWmEgLPmL7DwgEAAASv:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1011lybTuVxu'
+              href='https://play.hbomax.com/page/urn:hbo:page:GXrWijQMivL7DwgEAAARX:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1100lybuMBmB'
               rel="noopener noreferrer"
               target="_blank"
             />
@@ -522,7 +521,7 @@ const SeasonThree = () => {
               Stream
             </span>
             <a
-              href='https://play.hbomax.com/page/urn:hbo:page:GXrWmHAGNJ77DwgEAAAS3:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1100lyb6iVri'
+              href='https://play.hbomax.com/page/urn:hbo:page:GXrWqaQVsYoayhAEAAAWW:type:episode?utm_id=1100l5988&utm_source=gowatchit_gp&utm_medium=affiliate&clickref=1011lycij5zo'
               rel="noopener noreferrer"
               target="_blank"
             />

@@ -1,12 +1,33 @@
 .seasonsCarouselBox {
-  align-items: center;
-  display: flex;
   height: 83vh;
-  justify-content: center;
   overflow-y: auto;
   width: 100%;
 }
 
 .seasonsBox {
-  width: 56%;
+  margin: 2% 20% 0 20%;
+  width: 60%;
+}
+
+.enter {
+  animation: myAnim 1s cubic-bezier(0.83, 0, 0.17, 1) 0s 1 normal backwards;
+}
+
+@keyframes myAnim {
+  0% {
+    transform: scaleX(0);
+    transform-origin: 0% 0%;
+  }
+
+  100% {
+    transform: scaleX(1);
+    transform-origin: 0% 0%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .seasonsBox {
+    margin: 2% 2.5% 0 2.5%;
+    width: 95%;
+  }
 }

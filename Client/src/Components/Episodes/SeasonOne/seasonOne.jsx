@@ -46,8 +46,7 @@ const SeasonOne = () => {
   const onClick = (e) => {
     console.log('click ', e);
   };
-
-  console.log(episodes);
+  
   const items = [
     {
       type: 'divider',
