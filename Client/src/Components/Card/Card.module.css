@@ -9,11 +9,11 @@
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   color: white;
   display: flex;
-  height: 20vh;
+  height: 180px;
   justify-content: space-around;
   max-width: 100%;
   position: relative;
-  padding: 1rem;
+  padding: .5rem;
   transition: transform var(--transition-duration);
   width: 300px;
   z-index: 1;
@@ -28,28 +28,44 @@
   z-index: 4;
 }
 
-.buttons {
+.favorites {
   border: none;
   background: rgba(0, 0, 0, 0);
   z-index: 5;
 }
 
 .imgCard {
-  width: 50%;
+  width: 58%;
   border-radius: 100%;
   transition: transform var(--transition-duration);
 }
 
-.nameOut {
-  color: #dcdcdc;
-  max-width: 100%;
-  overflow-wrap: break-word;
+.closeButton {
+  border: none;
+  background: rgba(0, 0, 0, 0);
   position: absolute;
-  padding-left: 1rem;
+  top: 15px;
+  right: 15px;
+  z-index: 4;
+}
+
+.nameOut {
+  bottom: 80px;
+  color: #dcdcdc;
+  display: flex;
+  font-size: 11px;
+  max-width: 100%;
+  opacity: 1;
+  overflow-wrap: break-word;
+  padding: 0 1rem 0 1rem;
+  position: absolute;
+  text-align: left;
   transition-delay: calc(var(--transition-duration) / 8);
-  transition-property: opacity, transform;
   transition-duration: calc(var(--transition-duration) / 2);
+  transition-property: opacity, transform, visibility;
   transform: translateY(100%);
+  visibility: visible;
+  width: 100%;
   z-index: 2;
 }
 
@@ -60,11 +76,13 @@
 }
 
 .detail {
+  font-size: 12px;
   overflow-wrap: break-word;
-  font-size: 14px;
+  opacity: 0;
   transition-delay: calc(var(--transition-duration) / 8);
-  transition-property: opacity, transform;
+  transition-property: opacity, transform, visibility;
   transition-duration: calc(var(--transition-duration) / 2);
+  visibility: hidden;
   /* Los tres anteriores son para cuando sale el texto */
 }
 
@@ -76,20 +94,22 @@
   transform: scale(1.03);
 
   .detail {
+    opacity: 1;
     transition-duration: var(--transition-duration);
     transition-delay: calc(var(--transition-duration) / 3);
+    visibility: visible;
   }
 
   .nameOut {
     opacity: 0;
     transform: translateY(1em);
+    visibility: hidden;
   }
 
 }
 
 .cardBox:not(:hover) {
   .detail {
-    opacity: 0;
     transform: translateY(1em);
   }
 }

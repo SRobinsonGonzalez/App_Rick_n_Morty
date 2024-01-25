@@ -21,6 +21,7 @@ import { Avatar, Layout, Menu, Button, theme } from 'antd';
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserData, logoutUser } from "../../redux/Actions/actions";
+import Detail from "../../views/Detail/Detail";
 
 const { Content, Header, Footer, Sider } = Layout;
 
@@ -64,11 +65,22 @@ const defaultProps = [
 
 
 function Nav({ characters, onClose, onSearch, onSearchName, randomHandler }) {
+  const [selectedCharacterId, setSelectedCharacterId] = useState(null);
+  const [showDetail, setShowDetail] = useState(false);
   const [pathname, setPathname] = useState('/home');
   const userId = localStorage.getItem('userId');
   const userData = useSelector((state) => state.userData);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const toggleDetail = (characterId) => {
+    setShowDetail(!showDetail);
+    setSelectedCharacterId(characterId);
+  };
+
+  const handleDetailClose = () => {
+    setShowDetail(false);
+  };
 
   useEffect(() => {
     dispatch(getUserData(userId));
@@ -158,22 +170,28 @@ function Nav({ characters, onClose, onSearch, onSearchName, randomHandler }) {
               overflow: 'auto',
             }}
           >
-            {characters.length === 0 && pathname === "/home"
-              ? <div className={style.videoBox}>
-                <video
-                  autoPlay
-                  className={style.video}
-                  loop
-                  muted
-                  src='../../src/assets/clips/01.mp4'
-                />
-              </div>
-              : <div className={`${style.cardsBox} ${characters.length > 0 ? style.show : ""}`}>
-                <CardsSearchContainer characters={characters} onClose={onClose} />
-              </div>
-            }
+            {showDetail ? (
+              <Detail characterId={selectedCharacterId} handleDetailClose={handleDetailClose} />
+            ) : (
+              <>
+                {characters.length === 0 && pathname === "/home"
+                  ? <div className={style.videoBox}>
+                    <video
+                      autoPlay
+                      className={style.video}
+                      loop
+                      muted
+                      src='../../src/assets/clips/01.mp4'
+                    />
+                  </div>
+                  : <div className={`${style.cardsBox} ${characters.length > 0 ? style.show : ""}`}>
+                    <CardsSearchContainer characters={characters} onClose={onClose} toggleDetail={toggleDetail} />
+                  </div>
+                }
+                {pathname === "/home" && <Home toggleDetail={toggleDetail} />}
+              </>
+            )}
             <div>
-              {pathname === "/home" && <Home />}
               {pathname === "/profile" && <Profile />}
               {pathname === "/episodes" && <Episodes />}
               {pathname === "/favorites" && <Favorites />}

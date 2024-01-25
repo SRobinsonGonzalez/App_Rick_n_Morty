@@ -131,7 +131,6 @@ function App() {
       <Routes>
         <Route path='/' element={<LoginForm login={login} />} />
         {userAccessToken && <Route path='/home' element={<Nav characters={characters} onClose={onClose} onSearch={onSearch} onSearchName={onSearchName} randomHandler={randomHandler} />} />}
-        <Route path='/detail/:id' element={<Detail />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </div>

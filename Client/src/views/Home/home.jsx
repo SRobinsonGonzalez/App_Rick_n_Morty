@@ -2,10 +2,10 @@ import CardsContainer from "../../Components/CardsContainer/CardsContainer";
 import style from "./home.module.css";
 import React from "react";
 
-const Home = () => {
+const Home = ({ toggleDetail }) => {
   return (
     <div className={style.CardsContainer}>
-      <CardsContainer />
+      <CardsContainer toggleDetail={toggleDetail} />
     </div>
   )
 };

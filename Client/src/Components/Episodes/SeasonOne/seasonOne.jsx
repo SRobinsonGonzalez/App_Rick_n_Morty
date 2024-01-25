@@ -31,6 +31,7 @@ function getItem(label, key, icon, children, type) {
 const SeasonOne = () => {
   const allEpisodes = useSelector((state) => state.allEpisodes);
   const [episodes, setEpisodes] = useState([]);
+  console.log(episodes);
   const dispatch = useDispatch();
   const id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
@@ -46,7 +47,7 @@ const SeasonOne = () => {
   const onClick = (e) => {
     console.log('click ', e);
   };
-  
+
   const items = [
     {
       type: 'divider',
@@ -63,7 +64,7 @@ const SeasonOne = () => {
     {
       type: 'divider',
     },
-    getItem(episodes[0]?.name, 'sub2', <img className={style.img} src={img1} />, [
+    getItem(`${episodes[0]?.id}: ${episodes[0]?.name}`, 'sub2', <img className={style.img} src={img1} />, [
       {
         ...getItem(),
         style: { height: 20 },
@@ -110,7 +111,7 @@ const SeasonOne = () => {
     {
       type: 'divider',
     },
-    getItem(episodes[1]?.name, 'sub3', <img className={style.img} src={img2} />, [
+    getItem(`${episodes[1]?.id}: ${episodes[1]?.name}`, 'sub3', <img className={style.img} src={img2} />, [
       {
         ...getItem(),
         style: { height: 20 },
@@ -157,7 +158,7 @@ const SeasonOne = () => {
     {
       type: 'divider',
     },
-    getItem(episodes[2]?.name, 'sub4', <img className={style.img} src={img3} />, [
+    getItem(`${episodes[2]?.id}: ${episodes[2]?.name}`, 'sub4', <img className={style.img} src={img3} />, [
       {
         ...getItem(),
         style: { height: 20 },
@@ -204,7 +205,7 @@ const SeasonOne = () => {
     {
       type: 'divider',
     },
-    getItem(episodes[3]?.name, 'sub5', <img className={style.img} src={img4} />, [
+    getItem(`${episodes[3]?.id}: ${episodes[3]?.name}`, 'sub5', <img className={style.img} src={img4} />, [
       {
         ...getItem(),
         style: { height: 20 },
@@ -251,7 +252,7 @@ const SeasonOne = () => {
     {
       type: 'divider',
     },
-    getItem(episodes[4]?.name, 'sub6', <img className={style.img} src={img5} />, [
+    getItem(`${episodes[4]?.id}: ${episodes[4]?.name}`, 'sub6', <img className={style.img} src={img5} />, [
       {
         ...getItem(),
         style: { height: 20 },
@@ -298,7 +299,7 @@ const SeasonOne = () => {
     {
       type: 'divider',
     },
-    getItem(episodes[5]?.name, 'sub7', <img className={style.img} src={img6} />, [
+    getItem(`${episodes[5]?.id}: ${episodes[5]?.name}`, 'sub7', <img className={style.img} src={img6} />, [
       {
         ...getItem(),
         style: { height: 20 },
@@ -345,7 +346,7 @@ const SeasonOne = () => {
     {
       type: 'divider',
     },
-    getItem(episodes[6]?.name, 'sub8', <img className={style.img} src={img7} />, [
+    getItem(`${episodes[6]?.id}: ${episodes[6]?.name}`, 'sub8', <img className={style.img} src={img7} />, [
       {
         ...getItem(),
         style: { height: 20 },
@@ -392,7 +393,7 @@ const SeasonOne = () => {
     {
       type: 'divider',
     },
-    getItem(episodes[7]?.name, 'sub9', <img className={style.img} src={img8} />, [
+    getItem(`${episodes[7]?.id}: ${episodes[7]?.name}`, 'sub9', <img className={style.img} src={img8} />, [
       {
         ...getItem(),
         style: { height: 20 },
@@ -439,7 +440,7 @@ const SeasonOne = () => {
     {
       type: 'divider',
     },
-    getItem(episodes[8]?.name, 'sub10', <img className={style.img} src={img9} />, [
+    getItem(`${episodes[8]?.id}: ${episodes[8]?.name}`, 'sub10', <img className={style.img} src={img9} />, [
       {
         ...getItem(),
         style: { height: 20 },
@@ -486,7 +487,7 @@ const SeasonOne = () => {
     {
       type: 'divider',
     },
-    getItem(episodes[9]?.name, 'sub11', <img className={style.img} src={img10} />, [
+    getItem(`${episodes[9]?.id}: ${episodes[9]?.name}`, 'sub11', <img className={style.img} src={img10} />, [
       {
         ...getItem(),
         style: { height: 20 },
@@ -533,7 +534,7 @@ const SeasonOne = () => {
     {
       type: 'divider',
     },
-    getItem(episodes[10]?.name, 'sub12', <img className={style.img} src={img11} />, [
+    getItem(`${episodes[10]?.id}: ${episodes[10]?.name}`, 'sub12', <img className={style.img} src={img11} />, [
       {
         ...getItem(),
         style: { height: 20 },

@@ -1,5 +1,33 @@
 import axios from 'axios';
-import { ADD_FAVORITE, DELETE_FAVORITE, GET_ALL_CHARACTERS, GET_EPISODES, GET_USER_DATA, LOGIN, LOGOUT } from './action-types';
+import { ADD_FAVORITE, CLEAN_DETAIL, DELETE_FAVORITE, GET_ALL_CHARACTERS, GET_CHARACTER_BY_ID, GET_EPISODES, GET_USER_DATA, LOGIN, LOGOUT } from './action-types';
+
+const getChacarterById = (id) => {
+  const endpoint = `/character/${id}`;
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(endpoint);
+      dispatch({
+        type: GET_CHARACTER_BY_ID,
+        payload: response.data
+      });
+    } catch (error) {
+      console.error(error);
+      throw Error(error.response.data.error);
+    };
+  };
+};
+
+const cleanDetail = () => {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: CLEAN_DETAIL,
+      });
+    } catch (error) {
+      console.error(error);
+    };
+  };
+};
 
 const getAllCharacters = () => {
   const endpoint = "/character"
@@ -106,7 +134,9 @@ const getEpisodes = (id) => {
 };
 
 export {
+  getChacarterById,
   getAllCharacters,
+  cleanDetail,
   addFavorite,
   deleteFavorite,
   loginUser,

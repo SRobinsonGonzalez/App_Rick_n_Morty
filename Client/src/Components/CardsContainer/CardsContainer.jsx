@@ -6,7 +6,7 @@ import style from './CardsContainer.module.css'
 import Card from '../Card/Card';
 import { Pagination } from 'antd';
 
-function CardsContainer() {
+function CardsContainer({ toggleDetail }) {
   const allCharacters = useSelector((state) => state.allCharacters);
   const [characters, setCharacters] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -47,6 +47,7 @@ function CardsContainer() {
             gender={gender}
             origin={origin.name}
             image={image}
+            toggleDetail={() => toggleDetail(id)}
           />
         ))}
       </div>
