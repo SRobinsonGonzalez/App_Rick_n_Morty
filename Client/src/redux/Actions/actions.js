@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_FAVORITE, CLEAN_DETAIL, DELETE_FAVORITE, GET_ALL_CHARACTERS, GET_CHARACTER_BY_ID, GET_EPISODES, GET_USER_DATA, LOGIN, LOGOUT } from './action-types';
+import { ADD_FAVORITE, CLEAN_DETAIL, DELETE_FAVORITE, GET_ALL_CHARACTERS, GET_ALL_FAVORITES, GET_CHARACTER_BY_ID, GET_EPISODES, GET_USER_DATA, LOGIN, LOGOUT } from './action-types';
 
 const getChacarterById = (id) => {
   const endpoint = `/character/${id}`;
@@ -45,8 +45,8 @@ const getAllCharacters = () => {
   };
 };
 
-const addFavorite = (favorite) => {
-  const endpoint = "/favorites/"
+const addFavorite = (favorite, id) => {
+  const endpoint = `/favorites/add/${id}`
   return async (dispatch) => {
     try {
       const response = await axios.post(endpoint, favorite);
@@ -54,6 +54,7 @@ const addFavorite = (favorite) => {
         type: ADD_FAVORITE,
         payload: response.data
       });
+      dispatch(getAllFavorites(id));
     } catch (error) {
       console.error(error);
       throw Error(error.response.data.error);
@@ -61,17 +62,34 @@ const addFavorite = (favorite) => {
   };
 };
 
-const deleteFavorite = (id) => {
-  const endpoint = `/favorites/delete/${id}`
+const deleteFavorite = (favorite, id) => {
+  const endpoint = `/favorites/delete/${id}?id=${favorite.id}`
   return async (dispatch) => {
     try {
       const response = await axios.delete(endpoint);
-      return dispatch({
+      dispatch({
         type: DELETE_FAVORITE,
         payload: response.data
       });
+      dispatch(getAllFavorites(id));
     } catch (error) {
       console.error(error.message);
+      throw Error(error.response.data.error);
+    };
+  };
+};
+
+const getAllFavorites = (id) => {
+  const endpoint = `/favorites/${id}`;
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(endpoint);
+      return dispatch({
+        type: GET_ALL_FAVORITES,
+        payload: response.data
+      });
+    } catch (error) {
+      console.error(error);
       throw Error(error.response.data.error);
     };
   };
@@ -139,6 +157,7 @@ export {
   cleanDetail,
   addFavorite,
   deleteFavorite,
+  getAllFavorites,
   loginUser,
   logoutUser,
   getUserData,

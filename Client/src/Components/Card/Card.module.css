@@ -19,15 +19,6 @@
   z-index: 1;
 }
 
-.closeButton {
-  border: none;
-  background: rgba(0, 0, 0, 0);
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  z-index: 4;
-}
-
 .favorites {
   border: none;
   background: rgba(0, 0, 0, 0);
@@ -44,8 +35,8 @@
   border: none;
   background: rgba(0, 0, 0, 0);
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 6px;
+  right: 6px;
   z-index: 4;
 }
 

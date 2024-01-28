@@ -8,16 +8,21 @@ const CardsSearchContainer = ({ characters, onClose, toggleDetail }) => {
   return (
     <div className={style.cardsBox}>
       <div className={containerClassName}>
-        {characters && characters.map(({ id, name, status, species, gender, image, origin }) => (
+        {characters && characters.map(({ id, name, status, species, type, gender, origin, location, image, episode, url, created }) => (
           <Card
             key={id}
             id={id}
             name={name}
             status={status}
             species={species}
+            type={type}
             gender={gender}
-            origin={origin.name}
+            origin={origin}
+            location={location}
             image={image}
+            episode={episode}
+            url={url}
+            created={created}
             onClose={onClose}
             toggleDetail={() => toggleDetail(id)}
           />

@@ -10,6 +10,7 @@ const uploadUser = require("./User/put_uset")
 
 // Favorites_Routes
 const deleteFavorite = require("./Favorite/delete_favorite");
+const getAllFavorites = require("./Favorite/get_allFavorites")
 const postFavorite = require("./Favorite/post_favorite");
 
 // Characters_Routes
@@ -34,6 +35,7 @@ module.exports = {
 
     // Favorites_Routes
     deleteFavorite,
+    getAllFavorites,
     postFavorite,
 
     // Characters_Routes

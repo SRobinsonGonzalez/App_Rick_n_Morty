@@ -41,7 +41,6 @@
 .typeWriter {
   color: black;
   font-family: 'Press Start 2P', cursive;
-  font-style: 10px;
   width: 70%;
   z-index: 6;
 }

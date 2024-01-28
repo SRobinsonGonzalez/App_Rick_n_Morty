@@ -1,23 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // import { filterCards, orderCards } from "../../redux/Actions/actions";
-import { useState } from "react";
 // import { FaArrowDownShortWide, FaArrowDownWideShort } from 'react-icons/fa6'
 import Card from "../Card/Card";
 import style from './Favorites.module.css'
 
-const Favorites = () => {
+const Favorites = ({ toggleDetail }) => {
   const favorites = useSelector((state) => state.myFavorites);
-  const dispatch = useDispatch();
-  const [aux, setAux] = useState(false);
-
-  // function handleOrder(event) {
-  //   dispatch(orderCards(event.target.value));
-  //   setAux(true);
-  // }
-
-  // function handleFilter(event) {
-  //   dispatch(filterCards(event.target.value));
-  // }
 
   return (
     <div className={style.boxes}>
@@ -44,13 +32,14 @@ const Favorites = () => {
             gender={gender}
             image={image}
             origin={origin}
+            toggleDetail={() => toggleDetail(id)}
           />
         ))}
       </div>
       <img className={style.sticker} src="./src/assets/img/01.png" />
       <img className={style.bubble} src="./src/assets/img/18.png" />
       <div className={style.bubbleText}>
-        <h2 className={style.typeWriter}>My favorites, not yours!</h2>
+        <h2 className={style.typeWriter}>Are those your favorites?</h2>
       </div>
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100&display=swap');

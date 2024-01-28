@@ -12,7 +12,7 @@ const Detail = ({ characterId, handleDetailClose }) => {
     return () => {
       dispatch(cleanDetail());
     };
-  }, []);
+  }, [characterId]);
 
   const url = characterData?.episode?.map((episode) => episode.split('/'));
   const episodes = url?.map((chapter) => parseInt(chapter[chapter.length - 1]));
@@ -87,17 +87,6 @@ const Detail = ({ characterId, handleDetailClose }) => {
           </div>
         </div>
       </div>
-      <img className={style.sticker} src="../src/assets/img/01.png" />
-      <img className={style.bubble} src="../src/assets/img/18.png" />
-      <div className={style.bubbleText}>
-        <h2 className={style.typeWriter}>It's me again, loser!</h2>
-      </div>
-      <style>
-        @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100&display=swap');
-      </style>
-      <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-      </style>
     </div >
 
   );

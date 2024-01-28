@@ -74,8 +74,12 @@ function Nav({ characters, onClose, onSearch, onSearchName, randomHandler }) {
   const navigate = useNavigate();
 
   const toggleDetail = (characterId) => {
-    setShowDetail(!showDetail);
-    setSelectedCharacterId(characterId);
+    if (selectedCharacterId !== characterId) {
+      setShowDetail(true);
+      setSelectedCharacterId(characterId);
+    } else {
+      setShowDetail(!showDetail);
+    };
   };
 
   const handleDetailClose = () => {
@@ -192,9 +196,9 @@ function Nav({ characters, onClose, onSearch, onSearchName, randomHandler }) {
               </>
             )}
             <div>
+              {pathname === "/favorites" && <Favorites toggleDetail={toggleDetail} />}
               {pathname === "/profile" && <Profile />}
               {pathname === "/episodes" && <Episodes />}
-              {pathname === "/favorites" && <Favorites />}
               {pathname === "/about" && <About />}
             </div>
           </Content>

@@ -1,23 +1,26 @@
-import { addFavorite, deleteFavorite } from "../../redux/Actions/actions";
+import { addFavorite, deleteFavorite, getAllFavorites } from "../../redux/Actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 
-function Card({ id, name, species, gender, status, origin, image, onClose, toggleDetail }) {
+function Card({ id, name, status, species, type, gender, origin, location, image, episode, url, created, onClose, toggleDetail }) {
   const myFavorites = useSelector((state) => state.myFavorites);
-  const [randomColorStyle, setRandomColorStyle] = useState({ backgroundColor: '' })
+  const userId = localStorage.getItem('userId');
+  const [randomColorStyle, setRandomColorStyle] = useState({ backgroundColor: '' });
   const [closeButton, setCloseButton] = useState(true);
   const [isFav, setIsFav] = useState(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  const favorite = { id, name, status, species, type, gender, origin, location, image, episode, url, created };
 
   const handleFavorite = () => {
     if (isFav) {
-      setIsFav(false),
-        dispatch(deleteFavorite(id));
+      setIsFav(false);
+      dispatch(deleteFavorite(favorite, userId));
     } else {
-      setIsFav(true),
-        dispatch(addFavorite({ id, name, species, gender, status, origin, image, onClose }));
+      setIsFav(true);
+      dispatch(addFavorite(favorite, userId));
     };
   };
 
@@ -25,6 +28,10 @@ function Card({ id, name, species, gender, status, origin, image, onClose, toggl
     if (!onClose) {
       setCloseButton(false);
     }
+  }, []);
+
+  useEffect(() => {
+    dispatch(getAllFavorites(userId));
   }, []);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { ADD_FAVORITE, CLEAN_DETAIL, DELETE_FAVORITE, GET_ALL_CHARACTERS, GET_CHARACTER_BY_ID, GET_EPISODES, GET_USER_DATA, LOGIN, LOGOUT } from "./Actions/action-types";
+import { ADD_FAVORITE, CLEAN_DETAIL, DELETE_FAVORITE, GET_ALL_CHARACTERS, GET_ALL_FAVORITES, GET_CHARACTER_BY_ID, GET_EPISODES, GET_USER_DATA, LOGIN, LOGOUT } from "./Actions/action-types";
 
 const initialState = {
   allCharacters: [],
@@ -31,24 +31,17 @@ const rootReducer = (state = initialState, { type, payload }) => {
         characterData: []
       }
 
-    case ADD_FAVORITE:
+    case GET_ALL_FAVORITES:
       return {
         ...state,
         myFavorites: payload,
         myFavoritesDuplicate: payload
-      };
-
-    case DELETE_FAVORITE:
-      return {
-        ...state,
-        myFavorites: payload,
-        myFavoritesDuplicate: payload
-      };
+      }
 
     case LOGIN:
-      console.log(payload);
-      localStorage.setItem("accessToken", payload.accessToken)
-      localStorage.setItem("userId", payload.user._id)
+      localStorage.setItem("accessToken", payload.accessToken);
+      localStorage.setItem("refreshToken", payload.refreshToken);
+      localStorage.setItem("userId", payload.user._id);
       return {
         ...state,
         userData: payload

@@ -3,10 +3,12 @@ const favoritesRouter = express.Router();
 
 const {
   postFavorite,
-  deleteFavorite
+  deleteFavorite,
+  getAllFavorites
 } = require("../Controllers/index");
 
-favoritesRouter.post("/", postFavorite);
+favoritesRouter.get("/:id", getAllFavorites);
+favoritesRouter.post("/add/:id", postFavorite);
 favoritesRouter.delete("/delete/:id", deleteFavorite);
 
 module.exports = favoritesRouter;
